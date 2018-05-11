@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Badge, Form, FormGroup, Label, Input } from 'reactstrap';
+import React, { PureComponent } from 'react';
+import { Badge, Button, ButtonGroup, Form, FormGroup, Label, Input, Media } from 'reactstrap';
 
-class DataTableItem extends Component {
+class DataTableItem extends PureComponent {
 
     constructor(props) {
         super(props);
@@ -20,31 +20,53 @@ class DataTableItem extends Component {
     render() {
         const { item } = this.props;
         return (
-            <li className="message unread">
-                <a>
-                    <div className="actions" style={{ margin: '0 0.5rem' }}>
+            <li className={!item.isRead ? "message unread" : "message" }>
+                <div>
+                    {/* <div className="actions" style={{ margin: '1.6rem 0.5rem' }}>
                         <Form>
                             <FormGroup check>
                                 <Label check>
-                                    <Input type="checkbox" onClick={e => this.props.onChecked(item, e)} />{' '}
+                                    <Input type="checkbox" onClick={e => this.props.onChecked(item, e)} />
                                 </Label>
                             </FormGroup>
                         </Form>
-                    </div>
+                    </div> */}
                     <div className="header">
 
                         <span className="from">
-                            { this.props.priorityClasses && <h5><Badge color={this.props.priorityClasses.get(item.priority)}>{item.priority}</Badge></h5>}                            
+                            {this.props.priorityClasses &&
+                                <h6>
+                                    <Badge color={this.props.priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>
+                                    <span className="title"> {item.title}</span>
+
+                                    {/* {item.sender && item.sender.name && <span className="title"> {item.sender.name.firstName} {item.sender.name.lastName}</span>} */}
+                                </h6>}
                         </span>
                         <span className="date"><span className="fa fa-paper-clip"></span> {item.date}</span>
                     </div>
-                    <div className="title">
-                        {item.title}
-                    </div>
+
                     <div className="description">
-                        {this.truncateText(item.body, 250)}
+                        <Media>
+                            {item.sender && item.sender.avatarUrl &&
+                                <Media left href="#">
+                                    <Media object src={item.sender.avatarUrl} alt="Client avatar" style={{ height: '3rem' }} />
+                                </Media>}
+                            <Media body style={item.sender && item.sender && { margin: '0 0.5rem' }}>
+                                <div className="title">
+                                    {item.sender && item.sender && <span className="title"> {item.sender.firstName} {item.sender.lastName}</span>}
+                                </div>                               
+                                <p>{this.truncateText(item.body, 250)}</p>
+
+                            </Media>
+                        </Media>
+
+                        <ButtonGroup size="sm">
+                            <Button color="light" onClick={() => this.props.handleMarkAsRead(item)}><i className="fa fa-envelope-open-o"></i></Button>
+                            <Button color="light" onClick={() => this.props.handleMarkAsArchived(item)}><i className="fa fa-archive"></i></Button>
+                            <Button color="link"><a href={item.url}>{item.url}</a></Button>
+                        </ButtonGroup>
                     </div>
-                </a>
+                </div>
             </li>)
     }
 }

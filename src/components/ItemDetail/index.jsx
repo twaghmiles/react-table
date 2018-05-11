@@ -1,18 +1,33 @@
-import React, { Component } from 'react';
-import { Badge, Card, CardHeader, CardBody, CardTitle, CardText } from 'reactstrap';
+import React, { PureComponent } from 'react';
+import { Badge, Card, CardHeader, CardBody, CardTitle, CardText, Media } from 'reactstrap';
 
-class ItemDetail extends Component {
+class ItemDetail extends PureComponent {
     render() {
         const { item } = this.props;
 
         return (
             <Card>
                 <CardHeader>
-                    <h4><Badge color={this.props.priorityClasses.get(item.priority)}>{item.priority}  {item.date}</Badge></h4>
+                    <h5>
+                        <Badge color={this.props.priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>
+                        {item.title}
+                        <span className="float-right">{item.date}</span>
+                    </h5>
                 </CardHeader>
                 <CardBody>
-                    <CardTitle>{item.title}</CardTitle>
-                    <CardText>{item.body}</CardText>
+                    <Media>
+                        {item.sender && item.sender.avatarUrl &&
+                            <Media left href="#">
+                                <Media object src={item.sender.avatarUrl} alt="Client avatar" style={{ height: '3rem' }} />
+                            </Media>}
+                        <Media body style={item.sender && item.sender && { margin: '0 0.5rem' }}>
+                            <div className="title">
+                                {item.sender && item.sender && <span className="title"> {item.sender.firstName} {item.sender.lastName}</span>}
+                            </div>
+                            <p>{item.body}</p>
+
+                        </Media>
+                    </Media>
                 </CardBody>
             </Card>
         );

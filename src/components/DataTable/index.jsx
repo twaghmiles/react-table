@@ -1,30 +1,35 @@
-import React, { Component } from 'react';
-import { Button, ButtonGroup, Card, CardHeader, CardBody, CardTitle } from 'reactstrap';
+import React, { PureComponent } from 'react';
+import { Button, ButtonGroup, ButtonDropdown, Card, CardHeader, CardBody, CardTitle, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import DataTableItem from '../DataTableItem';
 
-class DataTable extends Component {
+class DataTable extends PureComponent {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      sortBy: 'priority',
+      sortBy: 'date',
       sortDesc: false,
-      checkedItems: []
+      checkedItems: [],
+      dropdownOpen: false
     }
 
     this.onChecked = this.onChecked.bind(this);
+    this.handleMarkAllItemsAsRead = this.handleMarkAllItemsAsRead.bind(this);
+    this.handleMarkAllItemsAsArchived = this.handleMarkAllItemsAsArchived.bind(this);
+    this.applyPropFun = this.applyPropFun.bind(this)
+    this.toggle = this.toggle.bind(this);
   }
 
-  compare(a, b, prop) {
+  compare(a, b, propIn1, propIn2) {
     let prop1 = null;
     let prop2 = null;
     if (this.state.sortDesc) {
-      prop1 = b[prop].toLowerCase();
-      prop2 = a[prop].toLowerCase();
+      prop1 = !!propIn2 ? b[propIn1][propIn2] : b[propIn1];
+      prop2 = !!propIn2 ? a[propIn1][propIn2] : a[propIn1];
     } else {
-      prop1 = a[prop].toLowerCase();
-      prop2 = b[prop].toLowerCase();
+      prop1 = !!propIn2 ? a[propIn1][propIn2] : a[propIn1];
+      prop2 = !!propIn2 ? b[propIn1][propIn2] : b[propIn1];
     }
 
     let comparison = 0;
@@ -38,11 +43,21 @@ class DataTable extends Component {
 
   applyPropFun() {
     const { checkedItems } = this.state;
-    this.props.fun(checkedItems);
+    this.props.fun(this.props.items);
+  }
+
+  handleMarkAllItemsAsRead() {
+    const { items } = this.props;
+    this.props.handleMarkAllItemsAsRead(items);
+  }
+
+  handleMarkAllItemsAsArchived() {
+    const { items } = this.props;
+    this.props.handleMarkAllItemsAsArchived(items);
   }
 
   onChecked(item, e) {
-    let checkedItems = this.state.checkedItems;
+    let { checkedItems } = this.state;
     const isChecked = !!checkedItems.find(f => f.id === item.id);
     if (e.target.checked && !isChecked) {
       checkedItems = [...checkedItems, item];
@@ -57,6 +72,26 @@ class DataTable extends Component {
     this.setState({ sortBy: prop, sortDesc });
   }
 
+  renderSortingButtons() {
+    const { sortByProps } = this.props;
+    return (
+      <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+        <DropdownToggle caret>
+          Sort by
+      </DropdownToggle>
+        <DropdownMenu>
+          {
+            sortByProps.map(propName => {
+              return <DropdownItem onClick={e => this.onSort(propName)} key={propName}>
+                Sort by {propName}
+              </DropdownItem >
+            })
+          }
+        </DropdownMenu>
+      </ButtonDropdown>
+    )
+  }
+
   renderTableItems() {
     const { items } = this.props;
 
@@ -64,13 +99,15 @@ class DataTable extends Component {
       <ul className="messages">
         {
           items
-            .sort((a, b) => this.compare(b, a, this.state.sortBy))
+            .sort((a, b) => this.compare(b, a, this.state.sortBy, this.state.sortBy === 'priority' ? 'value' : null))
             .map(item => {
               return (
                 <DataTableItem
-                  item={item}
+                  item={Object.assign({}, item)}
                   priorityClasses={this.props.priorityClasses}
                   onChecked={this.onChecked}
+                  handleMarkAsArchived={this.props.handleMarkAsArchived}
+                  handleMarkAsRead={this.props.handleMarkAsRead}
                   key={item.id} />
               )
             })
@@ -79,32 +116,25 @@ class DataTable extends Component {
     )
   }
 
+  toggle() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  }
+
   render() {
     return (
       <Card>
         <CardHeader>
-          { this.props.icon && <i className={this.props.icon}></i> } {this.props.title}
+          {this.props.icon && <i className={this.props.icon}></i>} {this.props.title}
         </CardHeader>
         <CardBody>
           <CardTitle>
-          <ButtonGroup>
-            { this.props.sortByProps && this.props.sortByProps.includes('priority') 
-              && <Button color="light" active={this.state.sortBy === 'priority'} onClick={e => this.onSort('priority')}>
-                  Sort by severity
-                  </Button> 
-            }
-            { this.props.sortByProps && this.props.sortByProps.includes('date') 
-              && <Button color="light" active={this.state.sortBy === 'date'} onClick={e => this.onSort('date')}>
-                  Sort by date
-                  </Button> 
-            }
-            { this.props.sortByProps && this.props.sortByProps.includes('title') 
-              && <Button color="light" active={this.state.sortBy === 'title'} onClick={e => this.onSort('title')}>
-                  Sort by title
-                  </Button> 
-            }
-            { this.props.fun && <Button color="success" onClick={() => this.applyPropFun()}>Apply function</Button>}            
-          </ButtonGroup>
+            {this.renderSortingButtons()}
+            <ButtonGroup>
+              {this.props.fun && <Button color="success" onClick={this.handleMarkAllItemsAsRead}><i className="fa fa-envelope-open-o"></i> Mark all as read</Button>}
+              {this.props.fun && <Button color="success" onClick={this.handleMarkAllItemsAsArchived}><i className="fa fa-archive"></i> Mark all as archived</Button>}
+            </ButtonGroup>
           </CardTitle>
 
           <div className="animated fadeIn">
