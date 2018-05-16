@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import NotificationList from './components/NotificationList';
 import ItemDetail from './components/ItemDetail';
 
@@ -59,7 +61,7 @@ class App extends Component {
                     isRead: false,
                     isArchived: false,
                     sender: {
-                        firstName: "Rick Sanchez"    
+                        firstName: "Rick Sanchez"
                     },
                     body: "something something in the month of may"
                 },
@@ -89,7 +91,10 @@ class App extends Component {
             ],
             selectedItems: [],
             priorityClasses: new Map([['High', 'danger'], ['Medium', 'warning'], ['Low', 'success']]),
-            sortableFields: ['priority', 'date']
+            sortableFields: [
+                { title: 'priority', sortByProp: 'value' },
+                { title: 'date', sortByProp: null }
+            ]
 
         }
         this.logSomeItems = this.logSomeItems.bind(this);
@@ -99,12 +104,12 @@ class App extends Component {
         this.handleMarkAllItemsAsRead = this.handleMarkAllItemsAsRead.bind(this);
     }
 
-    logSomeItems(items) {
+    logSomeItems = (items) => {
         this.setState({ selectedItems: items.filter(i => i.isArchived) })
         console.log(items);
     }
-    
-    handleMarkAsArchived(item) {
+
+    handleMarkAsArchived = (item) => {
         let { items } = this.state;
         items = items.map(i => {
             if (i.id === item.id) {
@@ -113,18 +118,18 @@ class App extends Component {
                 return i;
             }
         });
-        this.setState({items: [...items], selectedItems: items.filter(i => i.isArchived)});
+        this.setState({ items: [...items], selectedItems: items.filter(i => i.isArchived) });
         console.log(this.state.items);
     }
-    
-    handleMarkAllItemsAsArchived(item) {
+
+    handleMarkAllItemsAsArchived = (item) => {
         let { items } = this.state;
-        items = items.map(i =>  Object.assign(i, i.isArchived = true));
-        this.setState({items: [...items], selectedItems: items});
+        items = items.map(i => Object.assign(i, i.isArchived = true));
+        this.setState({ items: [...items], selectedItems: items });
         console.log(this.state.selectedItems);
     }
-    
-    handleMarkAsRead(item) {
+
+    handleMarkAsRead = (item) => {
         let { items } = this.state;
         items = items.map(i => {
             if (i.id === item.id) {
@@ -133,14 +138,14 @@ class App extends Component {
                 return i;
             }
         });
-        this.setState({items: [...items]});
+        this.setState({ items: [...items] });
     }
-    
-    handleMarkAllItemsAsRead(item) {
+
+    handleMarkAllItemsAsRead = (item) => {
         let { items } = this.state;
-        items = items.map(i =>  Object.assign(i, i.isRead = true));
-        this.setState({items: [...items]});
-    }  
+        items = items.map(i => Object.assign(i, i.isRead = true));
+        this.setState({ items: [...items] });
+    }
 
     renderSelectedItems() {
         const { selectedItems } = this.state;
@@ -150,9 +155,9 @@ class App extends Component {
                 {
                     selectedItems.map(item => {
                         return <ItemDetail
-                                    item={item}
-                                    priorityClasses={this.state.priorityClasses}
-                                    key={item.id} />
+                            item={item}
+                            priorityClasses={this.state.priorityClasses}
+                            key={item.id} />
                     })
                 }
             </div>
@@ -161,15 +166,17 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <NotificationList
-                    {...this.state}
-                    handleMarkAsArchived={this.handleMarkAsArchived}
-                    handleMarkAllItemsAsArchived={this.handleMarkAllItemsAsArchived}
-                    handleMarkAsRead={this.handleMarkAsRead}
-                    handleMarkAllItemsAsRead={this.handleMarkAllItemsAsRead} />
-                {this.renderSelectedItems()}
-            </div>
+            <Router location="/">
+                <div>
+                    <NotificationList
+                        {...this.state}
+                        handleMarkAsArchived={this.handleMarkAsArchived}
+                        handleMarkAllItemsAsArchived={this.handleMarkAllItemsAsArchived}
+                        handleMarkAsRead={this.handleMarkAsRead}
+                        handleMarkAllItemsAsRead={this.handleMarkAllItemsAsRead} />
+                    {this.renderSelectedItems()}
+                </div>
+            </Router>
         )
     }
 }

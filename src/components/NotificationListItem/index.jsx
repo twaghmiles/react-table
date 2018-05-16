@@ -1,13 +1,24 @@
 import React, { PureComponent } from 'react';
+import propTypes from 'prop-types';
 import { Badge, Button, ButtonGroup, Media } from 'reactstrap';
 
-class DataTableItem extends PureComponent {
+class NotificationListItem extends PureComponent {
 
     truncateText(text, truncateLength) {
         if (text.length > truncateLength) {
             return `${text.substring(0, truncateLength)}...`
         }
         return text;
+    }
+
+    handleMarkAsRead = () => {
+        const { item } = this.props;
+        this.props.handleMarkAsRead(item)
+    }
+
+    handleMarkAsArchived = () => {
+        const { item } = this.props;
+        this.props.handleMarkAsArchived(item)
     }
 
     render() {
@@ -45,8 +56,8 @@ class DataTableItem extends PureComponent {
                         </Media>
 
                         <ButtonGroup size="sm">
-                            <Button color="light" onClick={() => this.props.handleMarkAsRead(item)}><i className="fa fa-envelope-open-o"></i></Button>
-                            <Button color="light" onClick={() => this.props.handleMarkAsArchived(item)}><i className="fa fa-archive"></i></Button>
+                            {this.handleMarkAsRead && <Button color="light" onClick={this.handleMarkAsRead}><i className="fa fa-envelope-open-o"></i></Button>}
+                            {this.handleMarkAsArchived && <Button color="light" onClick={this.handleMarkAsArchived}><i className="fa fa-archive"></i></Button>}
                             <Button color="link"><a href={item.url}>{item.url}</a></Button>
                         </ButtonGroup>
                     </div>
@@ -55,4 +66,11 @@ class DataTableItem extends PureComponent {
     }
 }
 
-export default DataTableItem;
+NotificationListItem.propTypes = {
+    item: propTypes.object.isRequired,
+    priorityClasses: propTypes.instanceOf(Map).isRequired,
+    handleMarkAsRead: propTypes.func,
+    handleMarkAsArchived: propTypes.func
+}
+
+export default NotificationListItem;

@@ -1,5 +1,7 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import propTypes from 'prop-types';
 import { Button, ButtonGroup, ButtonDropdown, Card, CardHeader, CardBody, CardTitle, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+
 import NotificationListItem from '../NotificationListItem';
 
 class NotificationList extends PureComponent {
@@ -12,10 +14,6 @@ class NotificationList extends PureComponent {
       sortDesc: false,
       dropdownOpen: false
     }
-
-    this.handleMarkAllItemsAsRead = this.handleMarkAllItemsAsRead.bind(this);
-    this.handleMarkAllItemsAsArchived = this.handleMarkAllItemsAsArchived.bind(this);
-    this.toggle = this.toggle.bind(this);
   }
 
   compare(a, b, propIn1, propIn2) {
@@ -38,19 +36,27 @@ class NotificationList extends PureComponent {
     return comparison;
   }
 
-  handleMarkAllItemsAsRead() {
+  toggle = () => {
+    const { dropdownOpen } = this.state;
+    this.setState({
+      dropdownOpen: !dropdownOpen
+    });
+  }
+
+  handleMarkAllItemsAsRead = () => {
     const { items } = this.props;
     this.props.handleMarkAllItemsAsRead(items);
   }
 
-  handleMarkAllItemsAsArchived() {
+  handleMarkAllItemsAsArchived = () => {
     const { items } = this.props;
     this.props.handleMarkAllItemsAsArchived(items);
   }
 
-  onSort(prop) {
+  
+  handleSort(fieldName) {
     const { sortDesc } = this.state;
-    this.setState({ sortBy: prop, sortDesc: !sortDesc });
+    this.setState({ sortBy: fieldName, sortDesc: !sortDesc });
   }
 
   renderSortingButtons() {
@@ -62,9 +68,9 @@ class NotificationList extends PureComponent {
       </DropdownToggle>
         <DropdownMenu>
           {
-            sortableFields.map(fieldName => {
-              return <DropdownItem onClick={e => this.onSort(fieldName)} key={fieldName}>
-                Sort by {fieldName}
+            sortableFields.map(field => {
+              return <DropdownItem onClick={() => this.handleSort(field.title)} key={field.title}>
+                Sort by {field.title}
               </DropdownItem >
             })
           }
@@ -75,12 +81,15 @@ class NotificationList extends PureComponent {
 
   renderTableItems() {
     const { items } = this.props;
+    const { sortableFields } = this.props;
+    const { sortBy } = this.state;
+    const sortableProperty = sortableFields.find(f => f.title === sortBy);
 
     return (
       <ul className="messages">
         {
           items
-            .sort((a, b) => this.compare(b, a, this.state.sortBy, this.state.sortBy === 'priority' ? 'value' : null))
+            .sort((a, b) => this.compare(b, a, sortBy, sortableProperty ? sortableProperty.sortByProp : null))
             .map(item => {
               return (
                 <NotificationListItem
@@ -96,12 +105,7 @@ class NotificationList extends PureComponent {
     )
   }
 
-  toggle() {
-    const { dropdownOpen } = this.state;
-    this.setState({
-      dropdownOpen: !dropdownOpen
-    });
-  }
+
 
   render() {
     return (
@@ -130,6 +134,17 @@ class NotificationList extends PureComponent {
 
     )
   }
+}
+
+NotificationList.propTypes = {
+  title: propTypes.string.isRequired,
+  icon: propTypes.string,
+  items: propTypes.array.isRequired,
+  priorityClasses: propTypes.instanceOf(Map).isRequired,
+  handleMarkAsArchived: propTypes.func,
+  handleMarkAllItemsAsArchived: propTypes.func,
+  handleMarkAsRead: propTypes.func,
+  handleMarkAllItemsAsRead: propTypes.func
 }
 
 export default NotificationList;
