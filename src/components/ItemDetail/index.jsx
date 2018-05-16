@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Badge, Card, CardHeader, CardBody, CardTitle, CardText, Media } from 'reactstrap';
+import { Badge, Card, CardHeader, CardBody, Media } from 'reactstrap';
 
 class ItemDetail extends PureComponent {
     render() {

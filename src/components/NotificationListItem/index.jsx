@@ -1,14 +1,7 @@
 import React, { PureComponent } from 'react';
-import { Badge, Button, ButtonGroup, Form, FormGroup, Label, Input, Media } from 'reactstrap';
+import { Badge, Button, ButtonGroup, Media } from 'reactstrap';
 
 class DataTableItem extends PureComponent {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            checkedItems: []
-        }
-    }
 
     truncateText(text, truncateLength) {
         if (text.length > truncateLength) {
@@ -22,15 +15,6 @@ class DataTableItem extends PureComponent {
         return (
             <li className={!item.isRead ? "message unread" : "message" }>
                 <div>
-                    {/* <div className="actions" style={{ margin: '1.6rem 0.5rem' }}>
-                        <Form>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" onClick={e => this.props.onChecked(item, e)} />
-                                </Label>
-                            </FormGroup>
-                        </Form>
-                    </div> */}
                     <div className="header">
 
                         <span className="from">
@@ -38,24 +22,24 @@ class DataTableItem extends PureComponent {
                                 <h6>
                                     <Badge color={this.props.priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>
                                     <span className="title"> {item.title}</span>
-
-                                    {/* {item.sender && item.sender.name && <span className="title"> {item.sender.name.firstName} {item.sender.name.lastName}</span>} */}
                                 </h6>}
                         </span>
                         <span className="date"><span className="fa fa-paper-clip"></span> {item.date}</span>
                     </div>
 
                     <div className="description">
+                        <h6>{item.category}</h6>
                         <Media>
                             {item.sender && item.sender.avatarUrl &&
                                 <Media left href="#">
                                     <Media object src={item.sender.avatarUrl} alt="Client avatar" style={{ height: '3rem' }} />
                                 </Media>}
-                            <Media body style={item.sender && item.sender && { margin: '0 0.5rem' }}>
-                                <div className="title">
+                            <Media body>
+
+                                <div className="title"  style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>
                                     {item.sender && item.sender && <span className="title"> {item.sender.firstName} {item.sender.lastName}</span>}
                                 </div>                               
-                                <p>{this.truncateText(item.body, 250)}</p>
+                                <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{this.truncateText(item.body, 250)}</p>
 
                             </Media>
                         </Media>

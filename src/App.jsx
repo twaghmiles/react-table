@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DataTable from './components/DataTable';
+import NotificationList from './components/NotificationList';
 import ItemDetail from './components/ItemDetail';
 
 class App extends Component {
@@ -89,7 +89,7 @@ class App extends Component {
             ],
             selectedItems: [],
             priorityClasses: new Map([['High', 'danger'], ['Medium', 'warning'], ['Low', 'success']]),
-            sortByProps: ['priority', 'date']
+            sortableFields: ['priority', 'date']
 
         }
         this.logSomeItems = this.logSomeItems.bind(this);
@@ -161,18 +161,13 @@ class App extends Component {
 
     render() {
         return (
-            <div className="col">
-                <DataTable
-                    title={this.state.title}
-                    icon={this.state.icon}
-                    items={this.state.items}
-                    sortByProps={this.state.sortByProps}
+            <div>
+                <NotificationList
+                    {...this.state}
                     handleMarkAsArchived={this.handleMarkAsArchived}
                     handleMarkAllItemsAsArchived={this.handleMarkAllItemsAsArchived}
                     handleMarkAsRead={this.handleMarkAsRead}
-                    handleMarkAllItemsAsRead={this.handleMarkAllItemsAsRead}    
-                    fun={this.logSomeItems}
-                    priorityClasses={this.state.priorityClasses} />
+                    handleMarkAllItemsAsRead={this.handleMarkAllItemsAsRead} />
                 {this.renderSelectedItems()}
             </div>
         )

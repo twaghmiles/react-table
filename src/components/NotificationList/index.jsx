@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { Button, ButtonGroup, ButtonDropdown, Card, CardHeader, CardBody, CardTitle, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
-import DataTableItem from '../DataTableItem';
+import NotificationListItem from '../NotificationListItem';
 
-class DataTable extends PureComponent {
+class NotificationList extends PureComponent {
 
   constructor(props) {
     super(props);
@@ -10,14 +10,11 @@ class DataTable extends PureComponent {
     this.state = {
       sortBy: 'date',
       sortDesc: false,
-      checkedItems: [],
       dropdownOpen: false
     }
 
-    this.onChecked = this.onChecked.bind(this);
     this.handleMarkAllItemsAsRead = this.handleMarkAllItemsAsRead.bind(this);
     this.handleMarkAllItemsAsArchived = this.handleMarkAllItemsAsArchived.bind(this);
-    this.applyPropFun = this.applyPropFun.bind(this)
     this.toggle = this.toggle.bind(this);
   }
 
@@ -41,11 +38,6 @@ class DataTable extends PureComponent {
     return comparison;
   }
 
-  applyPropFun() {
-    const { checkedItems } = this.state;
-    this.props.fun(this.props.items);
-  }
-
   handleMarkAllItemsAsRead() {
     const { items } = this.props;
     this.props.handleMarkAllItemsAsRead(items);
@@ -56,24 +48,13 @@ class DataTable extends PureComponent {
     this.props.handleMarkAllItemsAsArchived(items);
   }
 
-  onChecked(item, e) {
-    let { checkedItems } = this.state;
-    const isChecked = !!checkedItems.find(f => f.id === item.id);
-    if (e.target.checked && !isChecked) {
-      checkedItems = [...checkedItems, item];
-    } else if (!e.target.checked) {
-      checkedItems = checkedItems.filter(f => f.id !== item.id);
-    }
-    this.setState({ checkedItems });
-  }
-
   onSort(prop) {
-    const sortDesc = !this.state.sortDesc;
-    this.setState({ sortBy: prop, sortDesc });
+    const { sortDesc } = this.state;
+    this.setState({ sortBy: prop, sortDesc: !sortDesc });
   }
 
   renderSortingButtons() {
-    const { sortByProps } = this.props;
+    const { sortableFields } = this.props;
     return (
       <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
@@ -81,9 +62,9 @@ class DataTable extends PureComponent {
       </DropdownToggle>
         <DropdownMenu>
           {
-            sortByProps.map(propName => {
-              return <DropdownItem onClick={e => this.onSort(propName)} key={propName}>
-                Sort by {propName}
+            sortableFields.map(fieldName => {
+              return <DropdownItem onClick={e => this.onSort(fieldName)} key={fieldName}>
+                Sort by {fieldName}
               </DropdownItem >
             })
           }
@@ -102,10 +83,9 @@ class DataTable extends PureComponent {
             .sort((a, b) => this.compare(b, a, this.state.sortBy, this.state.sortBy === 'priority' ? 'value' : null))
             .map(item => {
               return (
-                <DataTableItem
+                <NotificationListItem
                   item={Object.assign({}, item)}
                   priorityClasses={this.props.priorityClasses}
-                  onChecked={this.onChecked}
                   handleMarkAsArchived={this.props.handleMarkAsArchived}
                   handleMarkAsRead={this.props.handleMarkAsRead}
                   key={item.id} />
@@ -117,8 +97,9 @@ class DataTable extends PureComponent {
   }
 
   toggle() {
+    const { dropdownOpen } = this.state;
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen
+      dropdownOpen: !dropdownOpen
     });
   }
 
@@ -132,8 +113,8 @@ class DataTable extends PureComponent {
           <CardTitle>
             {this.renderSortingButtons()}
             <ButtonGroup>
-              {this.props.fun && <Button color="success" onClick={this.handleMarkAllItemsAsRead}><i className="fa fa-envelope-open-o"></i> Mark all as read</Button>}
-              {this.props.fun && <Button color="success" onClick={this.handleMarkAllItemsAsArchived}><i className="fa fa-archive"></i> Mark all as archived</Button>}
+              {this.props.handleMarkAllItemsAsRead && <Button color="success" onClick={this.handleMarkAllItemsAsRead}><i className="fa fa-envelope-open-o"></i> Mark all as read</Button>}
+              {this.props.handleMarkAllItemsAsArchived && <Button color="success" onClick={this.handleMarkAllItemsAsArchived}><i className="fa fa-archive"></i> Mark all as archived</Button>}
             </ButtonGroup>
           </CardTitle>
 
@@ -151,4 +132,4 @@ class DataTable extends PureComponent {
   }
 }
 
-export default DataTable;
+export default NotificationList;
