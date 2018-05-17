@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 import NotificationList from './components/NotificationList';
 import ItemDetail from './components/ItemDetail';
@@ -15,13 +14,13 @@ class App extends Component {
                 {
                     id: Math.floor(Math.random() * 1000000 + 1),
                     title: "B Check check check",
-                    date: "2018-01-01",
+                    date: new Date("2017-07-01"),
                     priority: {
                         name: "High",
                         value: 1
                     },
                     category: "Famous people",
-                    url: 'https://www.google.com/',
+                    url: '/detail',
                     isRead: true,
                     isArchived: false,
                     sender: {
@@ -34,7 +33,7 @@ class App extends Component {
                 {
                     id: Math.floor(Math.random() * 1000000 + 1),
                     title: "A Check check check",
-                    date: "2017-04-20",
+                    date: new Date("2015-03-03"),
                     priority: {
                         name: "Low",
                         value: 3
@@ -51,7 +50,7 @@ class App extends Component {
                 {
                     id: Math.floor(Math.random() * 1000000 + 1),
                     title: "D Check check check",
-                    date: "2012-12-21",
+                    date: new Date("2018-04-20"),
                     priority: {
                         name: "Medium",
                         value: 2
@@ -68,7 +67,7 @@ class App extends Component {
                 {
                     id: Math.floor(Math.random() * 1000000 + 1),
                     title: "C Check check check",
-                    date: '2001-09-11',
+                    date: new Date(),
                     priority: {
                         name: "High",
                         value: 1
@@ -166,17 +165,15 @@ class App extends Component {
 
     render() {
         return (
-            <Router location="/">
-                <div>
-                    <NotificationList
-                        {...this.state}
-                        handleMarkAsArchived={this.handleMarkAsArchived}
-                        handleMarkAllItemsAsArchived={this.handleMarkAllItemsAsArchived}
-                        handleMarkAsRead={this.handleMarkAsRead}
-                        handleMarkAllItemsAsRead={this.handleMarkAllItemsAsRead} />
-                    {this.renderSelectedItems()}
-                </div>
-            </Router>
+            <div>
+                <NotificationList
+                    {...this.state}
+                    handleMarkAsArchived={this.handleMarkAsArchived}
+                    handleMarkAllItemsAsArchived={this.handleMarkAllItemsAsArchived}
+                    handleMarkAsRead={this.handleMarkAsRead}
+                    handleMarkAllItemsAsRead={this.handleMarkAllItemsAsRead} />
+                {this.renderSelectedItems()}
+            </div>
         )
     }
 }

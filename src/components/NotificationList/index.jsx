@@ -53,7 +53,7 @@ class NotificationList extends PureComponent {
     this.props.handleMarkAllItemsAsArchived(items);
   }
 
-  
+
   handleSort(fieldName) {
     const { sortDesc } = this.state;
     this.setState({ sortBy: fieldName, sortDesc: !sortDesc });
@@ -108,28 +108,29 @@ class NotificationList extends PureComponent {
 
 
   render() {
+    const { icon, title } = this.props;
     return (
       <Card>
-        <CardHeader>
-          {this.props.icon && <i className={this.props.icon}></i>} {this.props.title}
-        </CardHeader>
-        <CardBody>
-          <CardTitle>
-            {this.renderSortingButtons()}
-            <ButtonGroup>
-              {this.props.handleMarkAllItemsAsRead && <Button color="success" onClick={this.handleMarkAllItemsAsRead}><i className="fa fa-envelope-open-o"></i> Mark all as read</Button>}
-              {this.props.handleMarkAllItemsAsArchived && <Button color="success" onClick={this.handleMarkAllItemsAsArchived}><i className="fa fa-archive"></i> Mark all as archived</Button>}
-            </ButtonGroup>
-          </CardTitle>
+          <CardHeader>
+            {icon && <i className={icon}></i>} {title}
+          </CardHeader>
+          <CardBody>
+            <CardTitle>
+              {this.renderSortingButtons()}
+              <ButtonGroup>
+                {this.handleMarkAllItemsAsRead && <Button color="success" onClick={this.handleMarkAllItemsAsRead}><i className="fa fa-envelope-open-o"></i> Mark all as read</Button>}
+                {this.handleMarkAllItemsAsArchived && <Button color="success" onClick={this.handleMarkAllItemsAsArchived}><i className="fa fa-archive"></i> Mark all as archived</Button>}
+              </ButtonGroup>
+            </CardTitle>
 
-          <div className="animated fadeIn">
-            <div className="email-app mb-4" style={{ border: 'none' }}>
-              <main className="inbox">
-                {this.renderTableItems()}
-              </main>
+            <div className="animated fadeIn">
+              <div className="email-app mb-4" style={{ border: 'none' }}>
+                <main className="inbox">
+                  {this.renderTableItems()}
+                </main>
+              </div>
             </div>
-          </div>
-        </CardBody>
+          </CardBody>
       </Card>
 
     )

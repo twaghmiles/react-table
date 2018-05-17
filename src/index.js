@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import App from './App';
+import ItemDetail from './components/ItemDetail';
 
 // Styles
 // Import Flag Icons Set
@@ -15,6 +17,11 @@ import '../scss/style.scss'
 import '../scss/core/_dropdown-menu-right.scss'
 
 ReactDOM.render(
-    <App/>,
+    <BrowserRouter>
+        <Switch>
+            <Route exact path='/' component={App} />
+            <Route path='/detail' component={ItemDetail} />
+        </Switch>
+    </BrowserRouter>,
     document.getElementById('root')
 );

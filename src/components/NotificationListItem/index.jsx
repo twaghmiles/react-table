@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Badge, Button, ButtonGroup, Media } from 'reactstrap';
 
 class NotificationListItem extends PureComponent {
@@ -22,20 +23,20 @@ class NotificationListItem extends PureComponent {
     }
 
     render() {
-        const { item } = this.props;
+        const { item, priorityClasses } = this.props;
         return (
-            <li className={!item.isRead ? "message unread" : "message" }>
-                <div>
+            <li className={!item.isRead ? "message unread" : "message"} style={{cursor: 'default'}}>
+                <Link to={item.url || '/'}>
                     <div className="header">
 
                         <span className="from">
-                            {this.props.priorityClasses &&
+                            {priorityClasses &&
                                 <h6>
-                                    <Badge color={this.props.priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>
+                                    <Badge color={priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>
                                     <span className="title"> {item.title}</span>
                                 </h6>}
                         </span>
-                        <span className="date"><span className="fa fa-paper-clip"></span> {item.date}</span>
+                        <span className="date"><span className="fa fa-paper-clip"></span> {item.date.toString()}</span>
                     </div>
 
                     <div className="description">
@@ -47,21 +48,19 @@ class NotificationListItem extends PureComponent {
                                 </Media>}
                             <Media body>
 
-                                <div className="title"  style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>
+                                <div className="title" style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>
                                     {item.sender && item.sender && <span className="title"> {item.sender.firstName} {item.sender.lastName}</span>}
-                                </div>                               
+                                </div>
                                 <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{this.truncateText(item.body, 250)}</p>
 
                             </Media>
                         </Media>
-
-                        <ButtonGroup size="sm">
-                            {this.handleMarkAsRead && <Button color="light" onClick={this.handleMarkAsRead}><i className="fa fa-envelope-open-o"></i></Button>}
-                            {this.handleMarkAsArchived && <Button color="light" onClick={this.handleMarkAsArchived}><i className="fa fa-archive"></i></Button>}
-                            <Button color="link"><a href={item.url}>{item.url}</a></Button>
-                        </ButtonGroup>
                     </div>
-                </div>
+                </Link>
+                <ButtonGroup size="sm" style={{padding: '0.2rem 0'}}>
+                    {this.handleMarkAsRead && <Button color="light" onClick={this.handleMarkAsRead}><i className="fa fa-envelope-open-o"></i></Button>}
+                    {this.handleMarkAsArchived && <Button color="light" onClick={this.handleMarkAsArchived}><i className="fa fa-archive"></i></Button>}
+                </ButtonGroup>
             </li>)
     }
 }
