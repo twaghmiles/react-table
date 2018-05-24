@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import NotificationList from './components/NotificationList';
-import ItemDetail from './components/ItemDetail';
 
 class App extends Component {
     constructor(props) {
@@ -13,6 +12,32 @@ class App extends Component {
             items: [
                 {
                     id: Math.floor(Math.random() * 1000000 + 1),
+                    type: {
+                        name: 'type 1',
+                        actions: [
+                            {
+                                id: 10001000,
+                                name: '',
+                                icon: 'fa fa-envelope-open-o',
+                                func: this.handleMarkAsRead,
+                                color: 'light'
+                            },
+                            {
+                                id: 10001001,
+                                name: '',
+                                icon: 'fa fa fa-archive',
+                                func: this.handleMarkAsArchived,
+                                color: 'light'
+                            },
+                            {
+                                id: 10001010,
+                                name: 'Call nr',
+                                icon: 'fa fa-phone-square',
+                                func: this.handlePhonecall,
+                                color: 'light'
+                            }
+                        ]
+                    },
                     title: "B Check check check",
                     date: new Date("2017-07-01"),
                     priority: {
@@ -28,10 +53,29 @@ class App extends Component {
                         lastName: 'Turing',
                         avatarUrl: 'https://www.biography.com/.image/t_share/MTE5NDg0MDU1MTUzMTE2Njg3/alan-turing-9512017-1-402.jpg'
                     },
-                    body: "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
+                    text: "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
                 },
                 {
                     id: Math.floor(Math.random() * 1000000 + 1),
+                    type: {
+                        name: 'type 1',
+                        actions: [
+                            {
+                                id: 20001000,
+                                name: '',
+                                icon: 'fa fa-envelope-open-o',
+                                func: this.handleMarkAsRead,
+                                color: 'light'
+                            },
+                            {
+                                id: 20001001,
+                                name: '',
+                                icon: 'fa fa fa-archive',
+                                func: this.handleMarkAsArchived,
+                                color: 'light'
+                            }
+                        ]
+                    },
                     title: "A Check check check",
                     date: new Date("2015-03-03"),
                     priority: {
@@ -43,12 +87,31 @@ class App extends Component {
                     isRead: true,
                     isArchived: false,
                     sender: null,
-                    body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et porttitor massa. Pellentesque sodales ante metus, quis gravida dolor accumsan et. Cras maximus, quam vitae fermentum consequat, mi magna aliquam ligula, ac hendrerit velit nibh ac mauris. Suspendisse ultricies dignissim enim, sit amet scelerisque ante tristique at. In tortor felis, tincidunt consequat purus eu, hendrerit pretium dui. Nunc volutpat, lacus ut placerat cursus, nulla lacus aliquet velit, id cursus odio nibh eget dolor. Vestibulum dictum congue ligula, a varius sem aliquet ut. Nunc commodo ligula nibh, sed condimentum dolor lacinia at. In euismod euismod luctus. Mauris ac arcu odio. Proin feugiat, ante et fermentum ullamcorper, eros massa consectetur est, eu congue metus erat eget neque. Suspendisse potenti. Sed sed volutpat nulla, id varius eros. Suspendisse potenti.
+                    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et porttitor massa. Pellentesque sodales ante metus, quis gravida dolor accumsan et. Cras maximus, quam vitae fermentum consequat, mi magna aliquam ligula, ac hendrerit velit nibh ac mauris. Suspendisse ultricies dignissim enim, sit amet scelerisque ante tristique at. In tortor felis, tincidunt consequat purus eu, hendrerit pretium dui. Nunc volutpat, lacus ut placerat cursus, nulla lacus aliquet velit, id cursus odio nibh eget dolor. Vestibulum dictum congue ligula, a varius sem aliquet ut. Nunc commodo ligula nibh, sed condimentum dolor lacinia at. In euismod euismod luctus. Mauris ac arcu odio. Proin feugiat, ante et fermentum ullamcorper, eros massa consectetur est, eu congue metus erat eget neque. Suspendisse potenti. Sed sed volutpat nulla, id varius eros. Suspendisse potenti.
 
                     Nullam maximus purus eget nunc tincidunt, quis accumsan ligula ullamcorper. Integer molestie erat id condimentum rutrum. Vestibulum et massa interdum, eleifend dui egestas, cursus mauris. Sed eu lobortis velit, nec ultricies augue. Ut ante risus, ultricies eu convallis at, consequat nec nisi. Curabitur rhoncus arcu turpis, rutrum fermentum magna mollis et. Proin ultrices aliquet rhoncus. Mauris luctus euismod orci sit amet pellentesque. Mauris mi metus, consectetur sed ipsum et, commodo convallis tellus. Nulla dui sapien, facilisis molestie sagittis quis, vehicula sit amet velit. Duis vel consequat nisl.`
                 },
                 {
                     id: Math.floor(Math.random() * 1000000 + 1),
+                    type: {
+                        name: 'type 1',
+                        actions: [
+                            {
+                                id: 30001000,
+                                name: '',
+                                icon: 'fa fa-envelope-open-o',
+                                func: this.handleMarkAsRead,
+                                color: 'light'
+                            },
+                            {
+                                id: 30001001,
+                                name: '',
+                                icon: 'fa fa fa-archive',
+                                func: this.handleMarkAsArchived,
+                                color: 'light'
+                            }
+                        ]
+                    },
                     title: "D Check check check",
                     date: new Date("2018-04-20"),
                     priority: {
@@ -62,10 +125,29 @@ class App extends Component {
                     sender: {
                         firstName: "Rick Sanchez"
                     },
-                    body: "something something in the month of may"
+                    text: "something something in the month of may"
                 },
                 {
                     id: Math.floor(Math.random() * 1000000 + 1),
+                    type: {
+                        name: 'type 1',
+                        actions: [
+                            {
+                                id: 40001000,
+                                name: '',
+                                icon: 'fa fa-envelope-open-o',
+                                func: this.handleMarkAsRead,
+                                color: 'light'
+                            },
+                            {
+                                id: 40001001,
+                                name: '',
+                                icon: 'fa fa fa-archive',
+                                func: this.handleMarkAsArchived,
+                                color: 'light'
+                            }
+                        ]
+                    },
                     title: "C Check check check",
                     date: new Date(),
                     priority: {
@@ -77,7 +159,7 @@ class App extends Component {
                     isRead: false,
                     isArchived: false,
                     sender: null,
-                    body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et porttitor massa. Pellentesque sodales ante metus, quis gravida dolor accumsan et. Cras maximus, quam vitae fermentum consequat, mi magna aliquam ligula, ac hendrerit velit nibh ac mauris. Suspendisse ultricies dignissim enim, sit amet scelerisque ante tristique at. In tortor felis, tincidunt consequat purus eu, hendrerit pretium dui. Nunc volutpat, lacus ut placerat cursus, nulla lacus aliquet velit, id cursus odio nibh eget dolor. Vestibulum dictum congue ligula, a varius sem aliquet ut. Nunc commodo ligula nibh, sed condimentum dolor lacinia at. In euismod euismod luctus. Mauris ac arcu odio. Proin feugiat, ante et fermentum ullamcorper, eros massa consectetur est, eu congue metus erat eget neque. Suspendisse potenti. Sed sed volutpat nulla, id varius eros. Suspendisse potenti.
+                    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et porttitor massa. Pellentesque sodales ante metus, quis gravida dolor accumsan et. Cras maximus, quam vitae fermentum consequat, mi magna aliquam ligula, ac hendrerit velit nibh ac mauris. Suspendisse ultricies dignissim enim, sit amet scelerisque ante tristique at. In tortor felis, tincidunt consequat purus eu, hendrerit pretium dui. Nunc volutpat, lacus ut placerat cursus, nulla lacus aliquet velit, id cursus odio nibh eget dolor. Vestibulum dictum congue ligula, a varius sem aliquet ut. Nunc commodo ligula nibh, sed condimentum dolor lacinia at. In euismod euismod luctus. Mauris ac arcu odio. Proin feugiat, ante et fermentum ullamcorper, eros massa consectetur est, eu congue metus erat eget neque. Suspendisse potenti. Sed sed volutpat nulla, id varius eros. Suspendisse potenti.
 
                     Nullam maximus purus eget nunc tincidunt, quis accumsan ligula ullamcorper. Integer molestie erat id condimentum rutrum. Vestibulum et massa interdum, eleifend dui egestas, cursus mauris. Sed eu lobortis velit, nec ultricies augue. Ut ante risus, ultricies eu convallis at, consequat nec nisi. Curabitur rhoncus arcu turpis, rutrum fermentum magna mollis et. Proin ultrices aliquet rhoncus. Mauris luctus euismod orci sit amet pellentesque. Mauris mi metus, consectetur sed ipsum et, commodo convallis tellus. Nulla dui sapien, facilisis molestie sagittis quis, vehicula sit amet velit. Duis vel consequat nisl.
                     
@@ -96,16 +178,10 @@ class App extends Component {
             ]
 
         }
-        this.logSomeItems = this.logSomeItems.bind(this);
-        this.handleMarkAsArchived = this.handleMarkAsArchived.bind(this);
-        this.handleMarkAllItemsAsArchived = this.handleMarkAllItemsAsArchived.bind(this);
-        this.handleMarkAsRead = this.handleMarkAsRead.bind(this);
-        this.handleMarkAllItemsAsRead = this.handleMarkAllItemsAsRead.bind(this);
     }
 
-    logSomeItems = (items) => {
-        this.setState({ selectedItems: items.filter(i => i.isArchived) })
-        console.log(items);
+    handlePhonecall = (item) => {
+        console.log('.. ring ring', item);
     }
 
     handleMarkAsArchived = (item) => {
@@ -118,62 +194,64 @@ class App extends Component {
             }
         });
         this.setState({ items: [...items], selectedItems: items.filter(i => i.isArchived) });
-        console.log(this.state.items);
+        const isBiggerThanZero = Math.round(Math.random()) > 0
+        return {
+            isSuccess: isBiggerThanZero ? true : false,
+            message: isBiggerThanZero ? 'success message' : 'error message'
+        };
     }
 
     handleMarkAllItemsAsArchived = (item) => {
         let { items } = this.state;
         items = items.map(i => Object.assign(i, i.isArchived = true));
         this.setState({ items: [...items], selectedItems: items });
-        console.log(this.state.selectedItems);
+        const isBiggerThanZero = Math.round(Math.random()) > 0
+        return {
+            isSuccess: isBiggerThanZero ? true : false,
+            message: isBiggerThanZero ? 'success message' : 'error message'
+        };
     }
 
     handleMarkAsRead = (item) => {
-        let { items } = this.state;
-        items = items.map(i => {
-            if (i.id === item.id) {
-                return Object.assign(i, i.isRead = true);
-            } else {
-                return i;
-            }
-        });
-        this.setState({ items: [...items] });
+        const isBiggerThanZero = Math.round(Math.random()) > 0
+        if (isBiggerThanZero) {
+            let { items } = this.state;
+            items = items.map(i => {
+                if (i.id === item.id) {
+                    return Object.assign(i, i.isRead = true);
+                } else {
+                    return i;
+                }
+            });
+            this.setState({ items: [...items] });
+        }
+        return {
+            isSuccess: isBiggerThanZero ? true : false,
+            message: isBiggerThanZero ? 'success message' : 'error message'
+        };
     }
 
     handleMarkAllItemsAsRead = (item) => {
-        let { items } = this.state;
-        items = items.map(i => Object.assign(i, i.isRead = true));
-        this.setState({ items: [...items] });
-    }
-
-    renderSelectedItems() {
-        const { selectedItems } = this.state;
-
-        return (
-            <div>
-                {
-                    selectedItems.map(item => {
-                        return <ItemDetail
-                            item={item}
-                            priorityClasses={this.state.priorityClasses}
-                            key={item.id} />
-                    })
-                }
-            </div>
-        )
+        const isBiggerThanZero = Math.round(Math.random()) > 0
+        if (isBiggerThanZero) {
+            let { items } = this.state;
+            items = items.map(i => Object.assign(i, i.isRead = true));
+            this.setState({ items: [...items] });
+        }
+        return {
+            isSuccess: isBiggerThanZero ? true : false,
+            message: isBiggerThanZero ? 'success message' : 'error message'
+        };
     }
 
     render() {
         return (
-            <div>
-                <NotificationList
-                    {...this.state}
-                    handleMarkAsArchived={this.handleMarkAsArchived}
-                    handleMarkAllItemsAsArchived={this.handleMarkAllItemsAsArchived}
-                    handleMarkAsRead={this.handleMarkAsRead}
-                    handleMarkAllItemsAsRead={this.handleMarkAllItemsAsRead} />
-                {this.renderSelectedItems()}
-            </div>
+            <NotificationList
+                {...this.state}
+                handleMarkAsArchived={this.handleMarkAsArchived}
+                handleMarkAllItemsAsArchived={this.handleMarkAllItemsAsArchived}
+                handleMarkAsRead={this.handleMarkAsRead}
+                handleMarkAllItemsAsRead={this.handleMarkAllItemsAsRead} />
         )
     }
 }

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Badge, Card, CardHeader, CardBody, Media } from 'reactstrap';
+import { Card } from 'reactstrap';
+// import { Badge, Card, CardHeader, CardBody, Media } from 'reactstrap';
 
 const ItemDetail = ({ item, priorityClasses }) => {
     return (
         <Card>
-            1 2 3
+            <img src="https://peopledotcom.files.wordpress.com/2017/02/polar-bear-6.jpg" alt="ice bear"/>
             {/* <CardHeader>
                 <h5>
                     <Badge color={priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>

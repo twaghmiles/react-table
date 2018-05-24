@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
-import { Button, ButtonGroup, ButtonDropdown, Card, CardHeader, CardBody, CardTitle, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { Alert, Button, ButtonGroup, ButtonDropdown, Card, CardHeader, CardBody, CardTitle, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 
-import NotificationListItem from '../NotificationListItem';
+import NotificationListItem from './NotificationListItem';
 
 class NotificationList extends PureComponent {
 
@@ -12,7 +12,11 @@ class NotificationList extends PureComponent {
     this.state = {
       sortBy: 'date',
       sortDesc: false,
-      dropdownOpen: false
+      dropdownOpen: false,
+      markAllAsRead: null,
+      markAllAsReadError: null,
+      markAllAsArchived: null,
+      markAllAsArchivedError: null
     }
   }
 
@@ -45,12 +49,26 @@ class NotificationList extends PureComponent {
 
   handleMarkAllItemsAsRead = () => {
     const { items } = this.props;
-    this.props.handleMarkAllItemsAsRead(items);
+    const resp = this.props.handleMarkAllItemsAsRead(items);
+    if (resp.isSuccess) {
+      this.setState({ markAllAsRead: resp.message });
+      setTimeout(() => this.setState({ markAllAsRead: null }), 3000);
+    } else {
+      this.setState({ markAllAsReadError: resp.message });
+      setTimeout(() => this.setState({ markAllAsReadError: null }), 3000);
+    }
   }
 
   handleMarkAllItemsAsArchived = () => {
     const { items } = this.props;
-    this.props.handleMarkAllItemsAsArchived(items);
+    const isSuccess = this.props.handleMarkAllItemsAsArchived(items);
+    if (isSuccess) {
+      this.setState({ markAllAsArchived: true });
+      setTimeout(() => this.setState({ markAllAsArchived: false }), 3000);
+    } else {
+      this.setState({ markAllAsArchivedError: true });
+      setTimeout(() => this.setState({ markAllAsArchivedError: false }), 3000);
+    }
   }
 
 
@@ -80,8 +98,7 @@ class NotificationList extends PureComponent {
   }
 
   renderTableItems() {
-    const { items } = this.props;
-    const { sortableFields } = this.props;
+    const { items, sortableFields } = this.props;
     const { sortBy } = this.state;
     const sortableProperty = sortableFields.find(f => f.title === sortBy);
 
@@ -105,32 +122,50 @@ class NotificationList extends PureComponent {
     )
   }
 
-
-
   render() {
+    const { markAllAsRead, markAllAsReadError, markAllAsArchived, markAllAsArchivedError } = this.state;
     const { icon, title } = this.props;
     return (
       <Card>
-          <CardHeader>
-            {icon && <i className={icon}></i>} {title}
-          </CardHeader>
-          <CardBody>
-            <CardTitle>
-              {this.renderSortingButtons()}
-              <ButtonGroup>
-                {this.handleMarkAllItemsAsRead && <Button color="success" onClick={this.handleMarkAllItemsAsRead}><i className="fa fa-envelope-open-o"></i> Mark all as read</Button>}
-                {this.handleMarkAllItemsAsArchived && <Button color="success" onClick={this.handleMarkAllItemsAsArchived}><i className="fa fa-archive"></i> Mark all as archived</Button>}
-              </ButtonGroup>
-            </CardTitle>
-
-            <div className="animated fadeIn">
-              <div className="email-app mb-4" style={{ border: 'none' }}>
-                <main className="inbox">
-                  {this.renderTableItems()}
-                </main>
-              </div>
+        <CardHeader>
+          {icon && <i className={icon}></i>} {title}
+        </CardHeader>
+        <CardBody>
+          <CardTitle>
+            {this.renderSortingButtons()}
+            <ButtonGroup>
+              {this.handleMarkAllItemsAsRead && <Button color="success" onClick={this.handleMarkAllItemsAsRead}><i className="fa fa-envelope-open-o"></i> Mark all as read</Button>}
+              {this.handleMarkAllItemsAsArchived && <Button color="success" onClick={this.handleMarkAllItemsAsArchived}><i className="fa fa-archive"></i> Mark all as archived</Button>}
+            </ButtonGroup>
+          </CardTitle>
+          {markAllAsRead &&
+            <Alert color="success animated fadeIn">
+              All items have been marked as read
+            </Alert>
+          }
+          {markAllAsReadError &&
+            <Alert color="danger animated fadeIn">
+              Oh snap
+            </Alert>
+          }
+          {markAllAsArchived &&
+            <Alert color="success animated fadeIn">
+              All items have been marked as archived
+            </Alert>
+          }
+          {markAllAsArchivedError &&
+            <Alert color="danger animated fadeIn">
+              Oh snap
+            </Alert>
+          }
+          <div className="animated fadeIn">
+            <div className="email-app mb-4" style={{ border: 'none' }}>
+              <main className="inbox">
+                {this.renderTableItems()}
+              </main>
             </div>
-          </CardBody>
+          </div>
+        </CardBody>
       </Card>
 
     )
