@@ -38,7 +38,7 @@ class NotificationListItem extends PureComponent {
                 <div>
                     {
                         item.type.actions.map(action => {
-                            return <Button key={action.id} color={action.color} onClick={() => this.handleAction(action.func, item)}><i className={action.icon}></i> {action.name}</Button>
+                            return <Button key={action.icon} color={action.color} onClick={() => this.handleAction(action.func, item)}><i className={action.icon}></i> {action.name}</Button>
                         })
                     }
                 </div>    
@@ -77,7 +77,7 @@ class NotificationListItem extends PureComponent {
                             <div className="title" style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>
                                 {item.sender && item.sender && <span className="title"> {item.sender.firstName} {item.sender.lastName}</span>}
                             </div>
-                            <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{this.truncateText(item.text, 250)}</p>
+                            <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{item.text}</p>
 
                         </Media>
                     </Media>
@@ -93,7 +93,7 @@ class NotificationListItem extends PureComponent {
         return (
             <li className={!item.isRead ? "message unread" : "message"} style={{ cursor: 'default' }}>
                 {item.url &&
-                    <Link to={item.url || '/'}>
+                    <Link to={item.url}>
                         {this.renderListItem(item, priorityClasses)}
                     </Link>
                 }
@@ -109,9 +109,7 @@ class NotificationListItem extends PureComponent {
 
 NotificationListItem.propTypes = {
     item: propTypes.object.isRequired,
-    priorityClasses: propTypes.instanceOf(Map).isRequired,
-    handleMarkAsRead: propTypes.func,
-    handleMarkAsArchived: propTypes.func
+    priorityClasses: propTypes.instanceOf(Map).isRequired
 }
 
 export default NotificationListItem;

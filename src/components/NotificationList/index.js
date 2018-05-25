@@ -78,7 +78,8 @@ class NotificationList extends PureComponent {
         <div>
           {
             actions.map(action => {
-              return <Button key={action.id} color={action.color} onClick={() => this.handleAction(action.func)}><i className={action.icon}></i> {action.name}</Button>
+              return <Button
+                key={action.icon} color={action.color} onClick={() => this.handleAction(action.func)}><i className={action.icon}></i> {action.name}</Button>
             })
           }
         </div>
@@ -92,7 +93,7 @@ class NotificationList extends PureComponent {
       <ButtonDropdown isOpen={isDropdownOpen} toggle={() => this.toggle(isOpenKey)}>
         <DropdownToggle caret>
           {actionName}
-      </DropdownToggle>
+        </DropdownToggle>
         <DropdownMenu>
           {
             arr.map(e => {
@@ -107,28 +108,34 @@ class NotificationList extends PureComponent {
   }
 
   renderTableItems() {
-    const { sortableFields } = this.props;
+    const { sortableFields, emptyPage } = this.props;
     const { filteredItems, sortBy } = this.state;
     const sortableProperty = sortableFields.find(f => f.title === sortBy);
+    if (filteredItems && filteredItems.length > 0) {
+      return (
+        <ul className="messages">
+          {
+            filteredItems
+              .sort((a, b) => this.compare(b, a, sortBy, sortableProperty ? sortableProperty.sortByProp : null))
+              .map(item => {
+                return (
+                  <NotificationListItem
+                    item={Object.assign({}, item)}
+                    priorityClasses={this.props.priorityClasses}
+                    key={item.id} />
+                )
+              })
+          }
+        </ul>
+      )
+    } else {
+      return (
+        <div>
+          {emptyPage}
+        </div>
+      );
+    }
 
-    return (
-      <ul className="messages">
-        {
-          filteredItems
-            .sort((a, b) => this.compare(b, a, sortBy, sortableProperty ? sortableProperty.sortByProp : null))
-            .map(item => {
-              return (
-                <NotificationListItem
-                  item={Object.assign({}, item)}
-                  priorityClasses={this.props.priorityClasses}
-                  handleMarkAsArchived={this.props.handleMarkAsArchived}
-                  handleMarkAsRead={this.props.handleMarkAsRead}
-                  key={item.id} />
-              )
-            })
-        }
-      </ul>
-    )
   }
 
   render() {
@@ -142,7 +149,7 @@ class NotificationList extends PureComponent {
         <CardBody>
           <CardTitle>
             {this.renderButtonDropdown('isSortingDropdownOpen', sortableFields, this.handleSort, 'title', 'Sort by')}
-            {this.renderButtonDropdown('isFilteringDropdownOpen', filters, this.handleFilter, 'predicateFunc', 'Filter by')}
+            {this.renderButtonDropdown('isFilteringDropdownOpen', filters, this.handleFilter, 'predicateFunc', 'Show')}
             <ButtonGroup>
               {this.renderActions(actions)}
             </ButtonGroup>
@@ -166,7 +173,6 @@ class NotificationList extends PureComponent {
           </div>
         </CardBody>
       </Card>
-
     )
   }
 }
@@ -175,11 +181,10 @@ NotificationList.propTypes = {
   title: propTypes.string.isRequired,
   icon: propTypes.string,
   items: propTypes.array.isRequired,
-  priorityClasses: propTypes.instanceOf(Map).isRequired,
-  handleMarkAsArchived: propTypes.func,
-  handleMarkAllItemsAsArchived: propTypes.func,
-  handleMarkAsRead: propTypes.func,
-  handleMarkAllItemsAsRead: propTypes.func
+  priorityClasses: propTypes.instanceOf(Map),
+  sortableFields: propTypes.array,
+  actions: propTypes.array,
+  filters: propTypes.array
 }
 
 export default NotificationList;

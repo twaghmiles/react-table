@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Alert } from 'reactstrap';
 
 import NotificationList from './components/NotificationList';
 
@@ -13,25 +14,22 @@ class App extends Component {
                 {
                     id: Math.floor(Math.random() * 1000000 + 1),
                     type: {
-                        name: 'type 1',
+                        name: 'followUp',
                         icon: '',
                         actions: [
                             {
-                                id: 10001000,
                                 name: '',
                                 icon: 'fa fa-envelope-open-o',
                                 func: this.handleMarkAsRead,
                                 color: 'light'
                             },
                             {
-                                id: 10001001,
                                 name: '',
                                 icon: 'fa fa fa-archive',
                                 func: this.handleMarkAsArchived,
                                 color: 'light'
                             },
                             {
-                                id: 10001010,
                                 name: 'Call nr',
                                 icon: 'fa fa-phone-square',
                                 func: this.handlePhonecall,
@@ -66,14 +64,12 @@ class App extends Component {
                         name: 'type 1',
                         actions: [
                             {
-                                id: 20001000,
                                 name: '',
                                 icon: 'fa fa-envelope-open-o',
                                 func: this.handleMarkAsRead,
                                 color: 'light'
                             },
                             {
-                                id: 20001001,
                                 name: '',
                                 icon: 'fa fa fa-archive',
                                 func: this.handleMarkAsArchived,
@@ -102,14 +98,12 @@ class App extends Component {
                         name: 'type 1',
                         actions: [
                             {
-                                id: 30001000,
                                 name: '',
                                 icon: 'fa fa-envelope-open-o',
                                 func: this.handleMarkAsRead,
                                 color: 'light'
                             },
                             {
-                                id: 30001001,
                                 name: '',
                                 icon: 'fa fa fa-archive',
                                 func: this.handleMarkAsArchived,
@@ -138,14 +132,12 @@ class App extends Component {
                         name: 'type 1',
                         actions: [
                             {
-                                id: 40001000,
                                 name: '',
                                 icon: 'fa fa-envelope-open-o',
                                 func: this.handleMarkAsRead,
                                 color: 'light'
                             },
                             {
-                                id: 40001001,
                                 name: '',
                                 icon: 'fa fa fa-archive',
                                 func: this.handleMarkAsArchived,
@@ -182,14 +174,12 @@ class App extends Component {
             ],
             actions: [
                 {
-                    id: 50001001,
                     name: 'Mark all as read',
                     icon: 'fa fa-envelope-open-o',
                     func: this.handleMarkAllItemsAsRead,
                     color: 'success'
                 },
                 {
-                    id: 50001010,
                     name: 'Archive all',
                     icon: 'fa fa fa-archive',
                     func: this.handleMarkAllItemsAsArchived,
@@ -198,8 +188,10 @@ class App extends Component {
             ],
             filters: [
                 { title: 'All', predicateFunc: (item) => !!item },
-                { title: 'Unread', predicateFunc: (item) => !item.isRead }
-            ]
+                { title: 'Unread', predicateFunc: (item) => !item.isRead },
+                { title: 'Archived', predicateFunc: (item) => item.isArchived }
+            ],
+            emptyPage: <Alert color="primary">All clear, nothing to see here...</Alert>
 
         }
     }
@@ -234,7 +226,7 @@ class App extends Component {
         let { items } = this.state;
         items = items.map(i => Object.assign(i, i.isArchived = true));
         this.setState({ items: [...items], selectedItems: items });
-        const isBiggerThanZero = Math.round(Math.random()) > 0
+        const isBiggerThanZero = Math.round(Math.random()) > 0;
         return {
             isSuccess: isBiggerThanZero ? true : false,
             message: isBiggerThanZero ? 'success message' : 'error message'
@@ -276,11 +268,7 @@ class App extends Component {
     render() {
         return (
             <NotificationList
-                {...this.state}
-                handleMarkAsArchived={this.handleMarkAsArchived}
-                handleMarkAllItemsAsArchived={this.handleMarkAllItemsAsArchived}
-                handleMarkAsRead={this.handleMarkAsRead}
-                handleMarkAllItemsAsRead={this.handleMarkAllItemsAsRead} />
+                {...this.state} />
         )
     }
 }
