@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Alert } from 'reactstrap';
 
-import NotificationList from './components/NotificationList';
+// import NotificationList from './components/NotificationList';
+import NotificationList from 'notification-list';
 
 class App extends Component {
     constructor(props) {
@@ -137,12 +138,12 @@ class App extends Component {
                                 func: this.handleMarkAsRead,
                                 color: 'light'
                             },
-                            {
-                                name: '',
-                                icon: 'fa fa fa-archive',
-                                func: this.handleMarkAsArchived,
-                                color: 'light'
-                            }
+                            // {
+                            //     name: '',
+                            //     icon: 'fa fa fa-archive',
+                            //     func: this.handleMarkAsArchived,
+                            //     color: 'light'
+                            // }
                         ]
                     },
                     title: "C Check check check",
@@ -209,7 +210,7 @@ class App extends Component {
         let { items } = this.state;
         items = items.map(i => {
             if (i.id === item.id) {
-                return Object.assign(i, i.isArchived = true);
+                return Object.assign(i, i.isArchived = !i.isArchived);
             } else {
                 return i;
             }
@@ -239,7 +240,7 @@ class App extends Component {
             let { items } = this.state;
             items = items.map(i => {
                 if (i.id === item.id) {
-                    return Object.assign(i, i.isRead = true);
+                    return Object.assign(i, i.isRead = !i.isRead);
                 } else {
                     return i;
                 }
@@ -267,8 +268,7 @@ class App extends Component {
 
     render() {
         return (
-            <NotificationList
-                {...this.state} />
+            <NotificationList {...this.state} />
         )
     }
 }

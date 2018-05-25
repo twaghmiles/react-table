@@ -14,13 +14,6 @@ class NotificationListItem extends PureComponent {
         }
     }
 
-    truncateText(text, truncateLength) {
-        if (text.length > truncateLength) {
-            return `${text.substring(0, truncateLength)}...`;
-        }
-        return text;
-    }
-
     handleAction = (func, item) => {
         const resp = func(item);
         if (resp.isSuccess) {

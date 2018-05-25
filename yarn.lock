@@ -5414,7 +5414,7 @@ lodash.isarray@^3.0.0:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/lodash.isarray/-/lodash.isarray-3.0.4.tgz#79e4eb88c36a8122af86f844aa9bcd851b5fbb55"
 
-lodash.isfunction@^3.0.8:
+lodash.isfunction@^3.0.8, lodash.isfunction@^3.0.9:
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/lodash.isfunction/-/lodash.isfunction-3.0.9.tgz#06de25df4db327ac931981d1bdb067e5af68d051"
 
@@ -6022,6 +6022,16 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
+"notification-list@github:ijogi/react-core-ui-notification-list":
+  version "0.0.0"
+  resolved "https://codeload.github.com/ijogi/react-core-ui-notification-list/tar.gz/4262af5bfc2479bd008669615781708a8f338b5b"
+  dependencies:
+    bootstrap "^4.1.1"
+    font-awesome "^4.7.0"
+    prop-types "^15.6.1"
+    react-router-dom "^4.2.2"
+    reactstrap "^5.0.0-alpha.4"
+
 npm-bundled@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.0.3.tgz#7e71703d973af3370a9591bafe3a63aca0be2308"
@@ -6434,7 +6444,7 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-popper.js@^1.12.5:
+popper.js@^1.12.5, popper.js@^1.12.9:
   version "1.14.3"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.3.tgz#1438f98d046acf7b4d78cd502bf418ac64d4f095"
 
@@ -7085,6 +7095,13 @@ react-popper@^0.7.2:
     popper.js "^1.12.5"
     prop-types "^15.5.10"
 
+react-popper@^0.8.3:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-0.8.3.tgz#0f73333137c9fb0af6ec4074d2d0585a0a0461e1"
+  dependencies:
+    popper.js "^1.12.9"
+    prop-types "^15.6.0"
+
 react-router-dom@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.2.2.tgz#c8a81df3adc58bba8a76782e946cbd4eae649b8d"
@@ -7122,7 +7139,7 @@ react-style-proptype@^3.0.0:
   dependencies:
     prop-types "^15.5.4"
 
-react-transition-group@^2.0.0, react-transition-group@^2.2.0:
+react-transition-group@^2.0.0, react-transition-group@^2.2.0, react-transition-group@^2.2.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.3.1.tgz#31d611b33e143a5e0f2d94c348e026a0f3b474b6"
   dependencies:
@@ -7161,6 +7178,18 @@ reactstrap@5.0.0-alpha.4:
     prop-types "^15.5.8"
     react-popper "^0.7.2"
     react-transition-group "^2.2.0"
+
+reactstrap@^5.0.0-alpha.4:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/reactstrap/-/reactstrap-5.0.0.tgz#d8948534df4816eddfb162a51643a499388e9228"
+  dependencies:
+    classnames "^2.2.3"
+    lodash.isfunction "^3.0.9"
+    lodash.isobject "^3.0.2"
+    lodash.tonumber "^4.0.3"
+    prop-types "^15.5.8"
+    react-popper "^0.8.3"
+    react-transition-group "^2.2.1"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"

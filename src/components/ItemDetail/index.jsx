@@ -1,20 +1,21 @@
 import React from 'react';
-import { Card } from 'reactstrap';
+import { Card, CardBody } from 'reactstrap';
 // import { Badge, Card, CardHeader, CardBody, Media } from 'reactstrap';
 
 const ItemDetail = ({ item, priorityClasses }) => {
     return (
         <Card>
-            <img src="https://peopledotcom.files.wordpress.com/2017/02/polar-bear-6.jpg" alt="ice bear" width="500"/>
+
             {/* <CardHeader>
                 <h5>
                     <Badge color={priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>
                     {item.title}
                     <span className="float-right">{item.date}</span>
                 </h5>
-            </CardHeader>
+            </CardHeader> */}
             <CardBody>
-                <Media>
+                <img src="https://peopledotcom.files.wordpress.com/2017/02/polar-bear-6.jpg" alt="ice bear" width="500" />
+                {/* <Media>
                     {item.sender && item.sender.avatarUrl &&
                         <Media left href="#">
                             <Media object src={item.sender.avatarUrl} alt="Client avatar" style={{ height: '3rem' }} />
@@ -26,8 +27,8 @@ const ItemDetail = ({ item, priorityClasses }) => {
                         <p>{item.body}</p>
 
                     </Media>
-                </Media>
-            </CardBody> */}
+                </Media> */}
+            </CardBody>
         </Card>
     );
 }
