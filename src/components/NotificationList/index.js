@@ -108,7 +108,7 @@ class NotificationList extends PureComponent {
   }
 
   renderTableItems() {
-    const { sortableFields, emptyPage } = this.props;
+    const { sortableFields, emptyPage, priorityClasses, truncateTextLength } = this.props;
     const { filteredItems, sortBy } = this.state;
     const sortableProperty = sortableFields.find(f => f.title === sortBy);
     if (filteredItems && filteredItems.length > 0) {
@@ -121,7 +121,8 @@ class NotificationList extends PureComponent {
                 return (
                   <NotificationListItem
                     item={Object.assign({}, item)}
-                    priorityClasses={this.props.priorityClasses}
+                    priorityClasses={priorityClasses}
+                    truncateTextLength={truncateTextLength}
                     key={item.id} />
                 )
               })

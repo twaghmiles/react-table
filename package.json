@@ -30,6 +30,7 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "moment": "^2.22.1",
     "notification-list": "github:ijogi/react-core-ui-notification-list",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
@@ -61,12 +62,12 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "@storybook/react": "^3.4.4",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1",
     "@storybook/addon-actions": "^3.4.4",
     "@storybook/addon-links": "^3.4.4",
-    "@storybook/addons": "^3.4.4"
+    "@storybook/addons": "^3.4.4",
+    "@storybook/react": "^3.4.4",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1"
   },
   "jest": {
     "collectCoverageFrom": [

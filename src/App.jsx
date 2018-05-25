@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Alert } from 'reactstrap';
+import moment from 'moment';
 
-// import NotificationList from './components/NotificationList';
-import NotificationList from 'notification-list';
+import NotificationList from './components/NotificationList';
+// import NotificationList from 'notification-list';
 
 class App extends Component {
     constructor(props) {
@@ -39,7 +40,10 @@ class App extends Component {
                         ]
                     },
                     title: "B Check check check",
-                    date: new Date("2017-07-01"),
+                    date: {
+                        dateObj: new Date("2018-05-24 20:20"),
+                        displayDate: moment("2018-05-24 20:20", "YYYY-MM-DD hh:mm").fromNow()
+                    },
                     alert: {
                         text: 'Very late payment  + has suspicious face',
                         color: 'danger'
@@ -79,7 +83,10 @@ class App extends Component {
                         ]
                     },
                     title: "A Check check check",
-                    date: new Date("2015-03-03"),
+                    date: {
+                        dateObj: new Date("2015-03-03"),
+                        displayDate: moment("2015-03-03", "YYYY-MM-DD").fromNow()
+                    },
                     priority: {
                         name: "Low",
                         value: 3
@@ -113,7 +120,10 @@ class App extends Component {
                         ]
                     },
                     title: "D Check check check",
-                    date: new Date("2018-04-20"),
+                    date: {
+                        dateObj: new Date("2018-04-20 07:20"),
+                        displayDate: moment("2018-04-20 12:20", "YYYY-MM-DD hh:mm").fromNow()
+                    },
                     priority: {
                         name: "Medium",
                         value: 2
@@ -138,16 +148,19 @@ class App extends Component {
                                 func: this.handleMarkAsRead,
                                 color: 'light'
                             },
-                            // {
-                            //     name: '',
-                            //     icon: 'fa fa fa-archive',
-                            //     func: this.handleMarkAsArchived,
-                            //     color: 'light'
-                            // }
+                            {
+                                name: '',
+                                icon: 'fa fa fa-archive',
+                                func: this.handleMarkAsArchived,
+                                color: 'light'
+                            }
                         ]
                     },
                     title: "C Check check check",
-                    date: new Date(),
+                    date: {
+                        dateObj: new Date(),
+                        displayDate: moment().fromNow()
+                    },
                     priority: {
                         name: "High",
                         value: 1
@@ -171,7 +184,7 @@ class App extends Component {
             priorityClasses: new Map([['High', 'danger'], ['Medium', 'warning'], ['Low', 'success']]),
             sortableFields: [
                 { title: 'priority', sortByProp: 'value' },
-                { title: 'date', sortByProp: null }
+                { title: 'date', sortByProp: 'dateObj' }
             ],
             actions: [
                 {
@@ -192,8 +205,8 @@ class App extends Component {
                 { title: 'Unread', predicateFunc: (item) => !item.isRead },
                 { title: 'Archived', predicateFunc: (item) => item.isArchived }
             ],
-            emptyPage: <Alert color="primary">All clear, nothing to see here...</Alert>
-
+            emptyPage: <Alert color="primary">All clear, nothing to see here...</Alert>,
+            truncateTextLength: 500
         }
     }
 

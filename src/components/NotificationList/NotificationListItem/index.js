@@ -9,9 +9,23 @@ class NotificationListItem extends PureComponent {
         super(props);
 
         this.state = {
+            showFullText: false,
             successMessage: null,
             errorMessage: null
         }
+    }
+
+    truncateText(text, truncateLength) {
+        const { showFullText } = this.state;
+        if (text.length > truncateLength && !showFullText) {
+            return `${text.substring(0, truncateLength)}...`;
+        }
+        return text;
+    }
+
+    expandText = () => {
+        const { showFullText } = this.state;
+        this.setState({ showFullText: !showFullText });
     }
 
     handleAction = (func, item) => {
@@ -34,13 +48,12 @@ class NotificationListItem extends PureComponent {
                             return <Button key={action.icon} color={action.color} onClick={() => this.handleAction(action.func, item)}><i className={action.icon}></i> {action.name}</Button>
                         })
                     }
-                </div>    
+                </div>
             )
         }
-        return <div></div>
     }
 
-    renderListItem(item, priorityClasses) {
+    renderListItem(item, priorityClasses, truncateTextLength) {
         return (
             <div>
                 <div className="header">
@@ -51,9 +64,9 @@ class NotificationListItem extends PureComponent {
                                 <Badge color={priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>
                                 <span className="title"> {item.title}</span>
                             </h6>}
-                            {item.alert && <Alert color={item.alert.color}>{item.alert.text}</Alert>}
+                        {item.alert && <Alert color={item.alert.color}>{item.alert.text}</Alert>}
                     </span>
-                    <span className="date"><span className="fa fa-paper-clip"></span> {item.date.toString()}</span>
+                    <span className="date"><span className="fa fa-paper-clip"></span> {item.date.displayDate}</span>
 
                 </div>
 
@@ -70,7 +83,7 @@ class NotificationListItem extends PureComponent {
                             <div className="title" style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>
                                 {item.sender && item.sender && <span className="title"> {item.sender.firstName} {item.sender.lastName}</span>}
                             </div>
-                            <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{item.text}</p>
+                            <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{item.text.length > truncateTextLength ? this.truncateText(item.text, 500) : item.text}</p>
 
                         </Media>
                     </Media>
@@ -81,8 +94,8 @@ class NotificationListItem extends PureComponent {
     }
 
     render() {
-        const { successMessage, errorMessage} = this.state;
-        const { item, priorityClasses } = this.props;
+        const { successMessage, errorMessage, showFullText } = this.state;
+        const { item, priorityClasses, truncateTextLength } = this.props;
         return (
             <li className={!item.isRead ? "message unread" : "message"} style={{ cursor: 'default' }}>
                 {item.url &&
@@ -90,7 +103,12 @@ class NotificationListItem extends PureComponent {
                         {this.renderListItem(item, priorityClasses)}
                     </Link>
                 }
-                {!item.url && this.renderListItem(item, priorityClasses)}
+                {!item.url && this.renderListItem(item, priorityClasses, truncateTextLength)}
+                {item.text.length > truncateTextLength &&
+                    <div>
+                        <Button color="link" size="sm" onClick={this.expandText}>{showFullText ? 'Less' : 'More'}</Button>
+                    </div>
+                }
                 <ButtonGroup size="sm" style={{ padding: '0.2rem 0' }}>
                     {this.renderActions(item)}
                 </ButtonGroup>
