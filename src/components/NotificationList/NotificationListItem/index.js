@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Badge, Button, ButtonGroup, Media } from 'reactstrap';
+import { Alert, Badge, Button, ButtonGroup, Media } from 'reactstrap';
 
 class NotificationListItem extends PureComponent {
 
@@ -44,6 +44,7 @@ class NotificationListItem extends PureComponent {
                 </div>    
             )
         }
+        return <div></div>
     }
 
     renderListItem(item, priorityClasses) {
@@ -57,8 +58,10 @@ class NotificationListItem extends PureComponent {
                                 <Badge color={priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>
                                 <span className="title"> {item.title}</span>
                             </h6>}
+                            {item.alert && <Alert color={item.alert.color}>{item.alert.text}</Alert>}
                     </span>
                     <span className="date"><span className="fa fa-paper-clip"></span> {item.date.toString()}</span>
+
                 </div>
 
                 <div className="description">
@@ -95,7 +98,6 @@ class NotificationListItem extends PureComponent {
                     </Link>
                 }
                 {!item.url && this.renderListItem(item, priorityClasses)}
-
                 <ButtonGroup size="sm" style={{ padding: '0.2rem 0' }}>
                     {this.renderActions(item)}
                 </ButtonGroup>

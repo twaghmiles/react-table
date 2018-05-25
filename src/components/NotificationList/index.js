@@ -12,11 +12,11 @@ class NotificationList extends PureComponent {
     this.state = {
       sortBy: 'date',
       sortDesc: false,
-      dropdownOpen: false,
-      markAllAsRead: null,
-      markAllAsReadError: null,
-      markAllAsArchived: null,
-      markAllAsArchivedError: null
+      filteredItems: this.props.items,
+      isSortingDropdownOpen: false,
+      isFilteringDropdownOpen: false,
+      successMessage: null,
+      errorMessage: null
     }
   }
 
@@ -40,55 +40,64 @@ class NotificationList extends PureComponent {
     return comparison;
   }
 
-  toggle = () => {
-    const { dropdownOpen } = this.state;
+  toggle = (key) => {
+    const isDropdownOpen = this.state[key];
     this.setState({
-      dropdownOpen: !dropdownOpen
+      [key]: !isDropdownOpen
     });
   }
 
-  handleMarkAllItemsAsRead = () => {
-    const { items } = this.props;
-    const resp = this.props.handleMarkAllItemsAsRead(items);
+  handleAction = (func) => {
+    const resp = func();
     if (resp.isSuccess) {
-      this.setState({ markAllAsRead: resp.message });
-      setTimeout(() => this.setState({ markAllAsRead: null }), 3000);
+      this.setState({ successMessage: resp.message });
+      setTimeout(() => this.setState({ successMessage: null }), 3000);
     } else {
-      this.setState({ markAllAsReadError: resp.message });
-      setTimeout(() => this.setState({ markAllAsReadError: null }), 3000);
+      this.setState({ errorMessage: resp.message });
+      setTimeout(() => this.setState({ errorMessage: null }), 3000);
     }
   }
 
-  handleMarkAllItemsAsArchived = () => {
-    const { items } = this.props;
-    const isSuccess = this.props.handleMarkAllItemsAsArchived(items);
-    if (isSuccess) {
-      this.setState({ markAllAsArchived: true });
-      setTimeout(() => this.setState({ markAllAsArchived: false }), 3000);
-    } else {
-      this.setState({ markAllAsArchivedError: true });
-      setTimeout(() => this.setState({ markAllAsArchivedError: false }), 3000);
-    }
-  }
-
-
-  handleSort(fieldName) {
+  handleSort = (fieldName) => {
     const { sortDesc } = this.state;
     this.setState({ sortBy: fieldName, sortDesc: !sortDesc });
   }
 
-  renderSortingButtons() {
-    const { sortableFields } = this.props;
+  handleFilter = (predicateFunc) => {
+    const { items } = this.props;
+    this.setState({ filteredItems: items.filter(predicateFunc) });
+  }
+
+  handleClick(func, obj, prm) {
+    return func(obj[prm]);
+  }
+
+  renderActions(actions) {
+    if (actions) {
+      return (
+        <div>
+          {
+            actions.map(action => {
+              return <Button key={action.id} color={action.color} onClick={() => this.handleAction(action.func)}><i className={action.icon}></i> {action.name}</Button>
+            })
+          }
+        </div>
+      )
+    }
+  }
+
+  renderButtonDropdown(isOpenKey, arr, action, actionPrm, actionName) {
+    const isDropdownOpen = this.state[isOpenKey];
     return (
-      <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+      <ButtonDropdown isOpen={isDropdownOpen} toggle={() => this.toggle(isOpenKey)}>
         <DropdownToggle caret>
-          Sort by
+          {actionName}
       </DropdownToggle>
         <DropdownMenu>
           {
-            sortableFields.map(field => {
-              return <DropdownItem onClick={() => this.handleSort(field.title)} key={field.title}>
-                Sort by {field.title}
+            arr.map(e => {
+              return <DropdownItem onClick={() => this.handleClick(action, e, actionPrm)} key={e.title}>
+                {actionName} {e.title}
               </DropdownItem >
             })
           }
@@ -98,14 +107,14 @@ class NotificationList extends PureComponent {
   }
 
   renderTableItems() {
-    const { items, sortableFields } = this.props;
-    const { sortBy } = this.state;
+    const { sortableFields } = this.props;
+    const { filteredItems, sortBy } = this.state;
     const sortableProperty = sortableFields.find(f => f.title === sortBy);
 
     return (
       <ul className="messages">
         {
-          items
+          filteredItems
             .sort((a, b) => this.compare(b, a, sortBy, sortableProperty ? sortableProperty.sortByProp : null))
             .map(item => {
               return (
@@ -123,8 +132,8 @@ class NotificationList extends PureComponent {
   }
 
   render() {
-    const { markAllAsRead, markAllAsReadError, markAllAsArchived, markAllAsArchivedError } = this.state;
-    const { icon, title } = this.props;
+    const { successMessage, errorMessage } = this.state;
+    const { icon, title, actions, sortableFields, filters } = this.props;
     return (
       <Card>
         <CardHeader>
@@ -132,30 +141,20 @@ class NotificationList extends PureComponent {
         </CardHeader>
         <CardBody>
           <CardTitle>
-            {this.renderSortingButtons()}
+            {this.renderButtonDropdown('isSortingDropdownOpen', sortableFields, this.handleSort, 'title', 'Sort by')}
+            {this.renderButtonDropdown('isFilteringDropdownOpen', filters, this.handleFilter, 'predicateFunc', 'Filter by')}
             <ButtonGroup>
-              {this.handleMarkAllItemsAsRead && <Button color="success" onClick={this.handleMarkAllItemsAsRead}><i className="fa fa-envelope-open-o"></i> Mark all as read</Button>}
-              {this.handleMarkAllItemsAsArchived && <Button color="success" onClick={this.handleMarkAllItemsAsArchived}><i className="fa fa-archive"></i> Mark all as archived</Button>}
+              {this.renderActions(actions)}
             </ButtonGroup>
           </CardTitle>
-          {markAllAsRead &&
+          {successMessage &&
             <Alert color="success animated fadeIn">
-              All items have been marked as read
+              {successMessage}
             </Alert>
           }
-          {markAllAsReadError &&
+          {errorMessage &&
             <Alert color="danger animated fadeIn">
-              Oh snap
-            </Alert>
-          }
-          {markAllAsArchived &&
-            <Alert color="success animated fadeIn">
-              All items have been marked as archived
-            </Alert>
-          }
-          {markAllAsArchivedError &&
-            <Alert color="danger animated fadeIn">
-              Oh snap
+              {errorMessage}
             </Alert>
           }
           <div className="animated fadeIn">

@@ -5,7 +5,7 @@ import { Card } from 'reactstrap';
 const ItemDetail = ({ item, priorityClasses }) => {
     return (
         <Card>
-            <img src="https://peopledotcom.files.wordpress.com/2017/02/polar-bear-6.jpg" alt="ice bear"/>
+            <img src="https://peopledotcom.files.wordpress.com/2017/02/polar-bear-6.jpg" alt="ice bear" width="500"/>
             {/* <CardHeader>
                 <h5>
                     <Badge color={priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>

@@ -14,6 +14,7 @@ class App extends Component {
                     id: Math.floor(Math.random() * 1000000 + 1),
                     type: {
                         name: 'type 1',
+                        icon: '',
                         actions: [
                             {
                                 id: 10001000,
@@ -40,6 +41,10 @@ class App extends Component {
                     },
                     title: "B Check check check",
                     date: new Date("2017-07-01"),
+                    alert: {
+                        text: 'Very late payment  + has suspicious face',
+                        color: 'danger'
+                    },
                     priority: {
                         name: "High",
                         value: 1
@@ -170,11 +175,30 @@ class App extends Component {
                     Etiam sed nunc arcu. Cras at tempor orci. Donec rutrum, erat eget blandit eleifend, odio tellus lacinia orci, id venenatis ligula enim eu ante. Proin eget enim efficitur, mollis massa ut, iaculis sapien. Mauris maximus nunc nec imperdiet laoreet. Aenean facilisis vitae est vel sodales. Mauris semper eros sed enim dignissim aliquam. Vivamus non neque et magna pretium euismod. Fusce id eros rutrum neque vestibulum venenatis. Pellentesque at nulla ut ante convallis vestibulum at at urna. Nam dictum ex vitae diam fringilla tristique. Vivamus vulputate a quam at tincidunt. Proin at tortor pulvinar, scelerisque elit ut, tincidunt elit. Donec mattis tortor vitae semper pharetra.`
                 }
             ],
-            selectedItems: [],
             priorityClasses: new Map([['High', 'danger'], ['Medium', 'warning'], ['Low', 'success']]),
             sortableFields: [
                 { title: 'priority', sortByProp: 'value' },
                 { title: 'date', sortByProp: null }
+            ],
+            actions: [
+                {
+                    id: 50001001,
+                    name: 'Mark all as read',
+                    icon: 'fa fa-envelope-open-o',
+                    func: this.handleMarkAllItemsAsRead,
+                    color: 'success'
+                },
+                {
+                    id: 50001010,
+                    name: 'Archive all',
+                    icon: 'fa fa fa-archive',
+                    func: this.handleMarkAllItemsAsArchived,
+                    color: 'success'
+                }
+            ],
+            filters: [
+                { title: 'All', predicateFunc: (item) => !!item },
+                { title: 'Unread', predicateFunc: (item) => !item.isRead }
             ]
 
         }
@@ -182,6 +206,11 @@ class App extends Component {
 
     handlePhonecall = (item) => {
         console.log('.. ring ring', item);
+        const isBiggerThanZero = Math.round(Math.random()) > 0;
+        return {
+            isSuccess: isBiggerThanZero ? true : false,
+            message: isBiggerThanZero ? 'success message' : 'error message'
+        };
     }
 
     handleMarkAsArchived = (item) => {
@@ -194,7 +223,7 @@ class App extends Component {
             }
         });
         this.setState({ items: [...items], selectedItems: items.filter(i => i.isArchived) });
-        const isBiggerThanZero = Math.round(Math.random()) > 0
+        const isBiggerThanZero = Math.round(Math.random()) > 0;
         return {
             isSuccess: isBiggerThanZero ? true : false,
             message: isBiggerThanZero ? 'success message' : 'error message'
@@ -213,7 +242,7 @@ class App extends Component {
     }
 
     handleMarkAsRead = (item) => {
-        const isBiggerThanZero = Math.round(Math.random()) > 0
+        const isBiggerThanZero = Math.round(Math.random()) > 0;
         if (isBiggerThanZero) {
             let { items } = this.state;
             items = items.map(i => {
@@ -232,7 +261,7 @@ class App extends Component {
     }
 
     handleMarkAllItemsAsRead = (item) => {
-        const isBiggerThanZero = Math.round(Math.random()) > 0
+        const isBiggerThanZero = Math.round(Math.random()) > 0;
         if (isBiggerThanZero) {
             let { items } = this.state;
             items = items.map(i => Object.assign(i, i.isRead = true));
