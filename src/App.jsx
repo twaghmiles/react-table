@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Alert } from 'reactstrap';
 import moment from 'moment';
+import './index.css'
 
 import NotificationList from './components/NotificationList';
 // import NotificationList from 'notification-list';
@@ -52,7 +53,11 @@ class App extends Component {
                         name: "High",
                         value: 1
                     },
-                    category: "Famous people",
+                    category: {
+                        name: 'Important',
+                        icon: 'fa fa-exclamation-triangle',
+                        cssClass: 'bg-info white-text'
+                    },
                     url: '/detail',
                     isRead: true,
                     isArchived: false,
@@ -128,7 +133,11 @@ class App extends Component {
                         name: "Medium",
                         value: 2
                     },
-                    category: "International client",
+                    category: {
+                        name: 'Important',
+                        icon: 'fa fa-exclamation-triangle',
+                        cssClass: 'bg-info white-text'
+                    },
                     url: null,
                     isRead: false,
                     isArchived: false,

@@ -71,7 +71,7 @@ class NotificationListItem extends PureComponent {
                 </div>
 
                 <div className="description">
-                    <h6>{item.category}</h6>
+                    <h6>{item.category ? item.category.name : ''}</h6>
                     <Media>
                         {item.sender && item.sender.avatarUrl &&
                             <Media>
@@ -97,7 +97,7 @@ class NotificationListItem extends PureComponent {
         const { successMessage, errorMessage, showFullText } = this.state;
         const { item, priorityClasses, truncateTextLength } = this.props;
         return (
-            <li className={!item.isRead ? "message unread" : "message"} style={{ cursor: 'default' }}>
+            <li className={!item.isRead ? "message unread" : "message" && (item.category && item.category.cssClass ? item.category.cssClass : '')} style={{ cursor: 'default', padding: '0.3rem' }}>
                 {item.url &&
                     <Link to={item.url}>
                         {this.renderListItem(item, priorityClasses)}
