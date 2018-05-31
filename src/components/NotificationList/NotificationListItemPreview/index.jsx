@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Alert, Badge, Button, ButtonGroup, DropdownItem, Media } from 'reactstrap';
+import { Button, ButtonGroup, DropdownItem } from 'reactstrap';
 
-class NotificationListItem extends PureComponent {
+class NotificationListItemPreview extends PureComponent {
 
     /**
      * @param {Object} props - Passed in props.
@@ -73,8 +72,8 @@ class NotificationListItem extends PureComponent {
      * @return {Object} JSX code for Notification list item.
      */
     render() {
-        const { successMessage, errorMessage, showFullText } = this.state;
-        const { item, priorityClasses, truncateTextLength } = this.props;
+        const { successMessage, errorMessage } = this.state;
+        const { item, truncateTextLength } = this.props;
         return (
             <div className="message" style={{ borderBottom: '1px solid #c2cfd6' }}>
                 <DropdownItem href="#" style={{border: 'none'}}>
@@ -103,9 +102,9 @@ class NotificationListItem extends PureComponent {
     }
 }
 
-NotificationListItem.propTypes = {
+NotificationListItemPreview.propTypes = {
     item: propTypes.object.isRequired,
-    priorityClasses: propTypes.instanceOf(Map).isRequired
+    truncateTextLength: propTypes.number.isRequired
 }
 
-export default NotificationListItem;
+export default NotificationListItemPreview;
