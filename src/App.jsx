@@ -110,18 +110,7 @@ class App extends Component {
                     type: {
                         name: 'type 1',
                         actions: [
-                            {
-                                name: '',
-                                icon: 'fa fa-envelope-open-o',
-                                func: this.handleMarkAsRead,
-                                color: 'light'
-                            },
-                            {
-                                name: '',
-                                icon: 'fa fa fa-archive',
-                                func: this.handleMarkAsArchived,
-                                color: 'light'
-                            }
+            
                         ]
                     },
                     title: "D Check check check",
@@ -159,7 +148,7 @@ class App extends Component {
                             },
                             {
                                 name: '',
-                                icon: 'fa fa fa-archive',
+                                icon: 'fa fa-archive',
                                 func: this.handleMarkAsArchived,
                                 color: 'light'
                             }
@@ -193,7 +182,8 @@ class App extends Component {
             priorityClasses: new Map([['High', 'danger'], ['Medium', 'warning'], ['Low', 'success']]),
             sortableFields: [
                 { title: 'priority', sortByProp: 'value' },
-                { title: 'date', sortByProp: 'dateObj' }
+                { title: 'date', sortByProp: 'dateObj' },
+                { title: 'title' }
             ],
             actions: [
                 {
@@ -204,7 +194,7 @@ class App extends Component {
                 },
                 {
                     name: 'Archive all',
-                    icon: 'fa fa fa-archive',
+                    icon: 'fa fa-archive',
                     func: this.handleMarkAllItemsAsArchived,
                     color: 'success'
                 }
@@ -243,6 +233,10 @@ class App extends Component {
             isSuccess: isBiggerThanZero ? true : false,
             message: isBiggerThanZero ? 'success message' : 'error message'
         };
+    }
+
+    handleSmth = (item) => {
+        console.log(item);
     }
 
     handleMarkAllItemsAsArchived = (item) => {

@@ -49,11 +49,11 @@ class NotificationList extends PureComponent {
 
   handleAction = (func) => {
     const resp = func();
-    if (resp.isSuccess) {
-      this.setState({ successMessage: resp.message });
+    if (resp && resp.isSuccess) {
+      this.setState({ successMessage: resp && resp.message ? resp.message : 'Done!' });
       setTimeout(() => this.setState({ successMessage: null }), 3000);
     } else {
-      this.setState({ errorMessage: resp.message });
+      this.setState({ errorMessage: resp && resp.message ? resp.message : 'Something went wrong...' });
       setTimeout(() => this.setState({ errorMessage: null }), 3000);
     }
   }

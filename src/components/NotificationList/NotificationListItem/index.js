@@ -5,6 +5,10 @@ import { Alert, Badge, Button, ButtonGroup, Media } from 'reactstrap';
 
 class NotificationListItem extends PureComponent {
 
+    /**
+     * @param {Object} props - Passed in props.
+     * @member {string} state.fulltext - Component state.
+     */
     constructor(props) {
         super(props);
 
@@ -15,6 +19,12 @@ class NotificationListItem extends PureComponent {
         }
     }
 
+    /**
+     * Truncates text if it's longer that specified limit.
+     * @param {string} text - Text to be truncated.
+     * @param {string} truncateLength - The length starting from which the text will be truncated.
+     * @return {string} Truncated text.
+     */
     truncateText(text, truncateLength) {
         const { showFullText } = this.state;
         if (text.length > truncateLength && !showFullText) {
@@ -23,22 +33,35 @@ class NotificationListItem extends PureComponent {
         return text;
     }
 
+    /**
+     * Toggles showing full text if text has been truncated based on this.state.showFullText
+     */
     expandText = () => {
         const { showFullText } = this.state;
         this.setState({ showFullText: !showFullText });
     }
 
+    /**
+     * Call's the action based in to onClick handle and passes in the action attached to item's type object. If the passed in object return an object with properties isSuccess and message then a success or error message can be displayed.
+     * @param {Function} func - Function to be called on onClick.
+     * @param {Object} item - Notification list item passed to the function.
+     */
     handleAction = (func, item) => {
         const resp = func(item);
-        if (resp.isSuccess) {
-            this.setState({ successMessage: resp.message });
+        if (resp && resp.isSuccess) {
+            this.setState({ successMessage: resp && resp.message ? resp.message : 'Done!' });
             setTimeout(() => this.setState({ successMessage: null }), 3000);
         } else {
-            this.setState({ errorMessage: resp.message });
+            this.setState({ errorMessage: resp && resp.message ? resp.message : 'Something went wrong...' });
             setTimeout(() => this.setState({ errorMessage: null }), 3000);
         }
     }
 
+    /**
+     * Renders the actions passed into item.type.actions array
+     * @param {Object} item - Notification list item.
+     * @return {Object} JSX code for action buttons with onClick event handlers.
+     */
     renderActions(item) {
         if (item.type && item.type.actions) {
             return (
@@ -53,6 +76,13 @@ class NotificationListItem extends PureComponent {
         }
     }
 
+    /**
+     * Renders individual list items
+     * @param {Object} item - Notification list item.
+     * @param {Map} priorityClasses - A map of priority name's and associated reactstrap colorClasses.
+     * @param {string} truncateTextLength - The length starting from which the text will be truncated.
+     * @return {Object} JSX code for Notification list item.
+     */
     renderListItem(item, priorityClasses, truncateTextLength) {
         return (
             <div>
@@ -93,6 +123,10 @@ class NotificationListItem extends PureComponent {
         );
     }
 
+    /**
+     * Components render fucntion
+     * @return {Object} JSX code for Notification list item.
+     */
     render() {
         const { successMessage, errorMessage, showFullText } = this.state;
         const { item, priorityClasses, truncateTextLength } = this.props;
