@@ -5979,6 +5979,16 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
+"notification-list-item@github:ijogi/react-core-ui-notification-list-item":
+  version "0.0.0"
+  resolved "https://codeload.github.com/ijogi/react-core-ui-notification-list-item/tar.gz/b5757a3314c0c021be273699c8436afec99c04c6"
+  dependencies:
+    bootstrap "^4.1.1"
+    font-awesome "^4.7.0"
+    prop-types "^15.6.1"
+    react-router-dom "^4.2.2"
+    reactstrap "^5.0.0-alpha.4"
+
 "notification-list@github:ijogi/react-core-ui-notification-list":
   version "0.0.0"
   resolved "https://codeload.github.com/ijogi/react-core-ui-notification-list/tar.gz/68d3063819f5b2842399c968a84d3c20846e998d"

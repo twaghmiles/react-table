@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
 import { Alert, Button, ButtonGroup, ButtonDropdown, Card, CardHeader, CardBody, CardTitle, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 
-import NotificationListItem from './NotificationListItem';
+// import NotificationListItem from './NotificationListItem';
+import NotificationListItem from 'notification-list-item';
 
 class NotificationList extends PureComponent {
 

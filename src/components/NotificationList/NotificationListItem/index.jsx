@@ -113,7 +113,7 @@ class NotificationListItem extends PureComponent {
                             <div className="title" style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>
                                 {item.sender && item.sender && <span className="title"> {item.sender.firstName} {item.sender.lastName}</span>}
                             </div>
-                            <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{item.text.length > truncateTextLength ? this.truncateText(item.text, 500) : item.text}</p>
+                            <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{item.text.length > truncateTextLength ? this.truncateText(item.text, truncateTextLength) : item.text}</p>
 
                         </Media>
                     </Media>
@@ -131,10 +131,10 @@ class NotificationListItem extends PureComponent {
         const { successMessage, errorMessage, showFullText } = this.state;
         const { item, priorityClasses, truncateTextLength } = this.props;
         return (
-            <li className={!item.isRead ? "message unread" : "message" && (item.category && item.category.cssClass ? item.category.cssClass : '')} style={{ cursor: 'default', padding: '0.3rem' }}>
+            <li className={!item && item.isRead ? "message unread" : "message" && (item.category && item.category.cssClass ? item.category.cssClass : '')} style={{ cursor: 'default', padding: '0.3rem' }}>
                 {item.url &&
                     <Link to={item.url}>
-                        {this.renderListItem(item, priorityClasses)}
+                        {this.renderListItem(item, priorityClasses, truncateTextLength)}
                     </Link>
                 }
                 {!item.url && this.renderListItem(item, priorityClasses, truncateTextLength)}
