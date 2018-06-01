@@ -3,7 +3,8 @@ import { Alert } from 'reactstrap';
 import moment from 'moment';
 import './index.css'
 
-import NotificationList from './components/NotificationList';
+// import NotificationList from './components/NotificationList';
+import { NotificationList } from './components/CompositeComponent';
 // import NotificationList from 'notification-list';
 
 class App extends Component {
@@ -205,7 +206,8 @@ class App extends Component {
                 { title: 'Archived', predicateFunc: (item) => item.isArchived }
             ],
             emptyPage: <Alert color="primary">All clear, nothing to see here...</Alert>,
-            truncateTextLength: 500
+            truncateTextLength: 500,
+            defaultSortBy: 'date'
         }
     }
 

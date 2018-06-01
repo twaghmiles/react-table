@@ -96,7 +96,7 @@ class NotificationListItem extends PureComponent {
                             </h6>}
                         {item.alert && <Alert color={item.alert.color}>{item.alert.text}</Alert>}
                     </span>
-                    <span className="date"><span className="fa fa-paper-clip"></span> {item.date.displayDate}</span>
+                    <span className="date"><span className="fa fa-paper-clip"></span><b> {item.date.displayDate}</b></span>
 
                 </div>
 
