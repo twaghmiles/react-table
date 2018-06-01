@@ -4,8 +4,8 @@ import moment from 'moment';
 import './index.css'
 
 // import NotificationList from './components/NotificationList';
-import { NotificationList } from './components/CompositeComponent';
-// import NotificationList from 'notification-list';
+// import { NotificationList } from './components/CompositeComponent';
+import { NotificationList } from 'notification-list';
 
 class App extends Component {
     constructor(props) {
@@ -57,7 +57,7 @@ class App extends Component {
                     category: {
                         name: 'Important',
                         icon: 'fa fa-exclamation-triangle',
-                        cssClass: 'bg-info white-text'
+                        cssClass: ''
                     },
                     url: '/detail',
                     isRead: true,
@@ -126,7 +126,7 @@ class App extends Component {
                     category: {
                         name: 'Important',
                         icon: 'fa fa-exclamation-triangle',
-                        cssClass: 'bg-info white-text'
+                        cssClass: ''
                     },
                     url: null,
                     isRead: false,

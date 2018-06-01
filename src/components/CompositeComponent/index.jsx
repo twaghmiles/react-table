@@ -8,7 +8,7 @@ export class NotificationList extends PureComponent {
     constructor(props) {
         super(props);
 
-        const { defaultSortBy, items} = this.props;
+        const { defaultSortBy, items } = this.props;
 
         this.state = {
             sortBy: defaultSortBy || 'date',
@@ -337,7 +337,7 @@ export class NotificationListItem extends PureComponent {
                             </h6>}
                         {item.alert && <Alert color={item.alert.color}>{item.alert.text}</Alert>}
                     </span>
-                    <span className="date"><span className="fa fa-paper-clip"></span><b> {item.date.displayDate}</b></span>
+                    <span className="date"><span className="fa fa-paper-clip"></span>{item.date.displayDate}</span>
 
                 </div>
 
@@ -372,23 +372,24 @@ export class NotificationListItem extends PureComponent {
         const { successMessage, errorMessage, showFullText } = this.state;
         const { item, priorityClasses, truncateTextLength } = this.props;
         return (
-            <li className={!item && item.isRead ? "message unread" : "message" && (item.category && item.category.cssClass ? item.category.cssClass : '')} style={{ cursor: 'default', padding: '0.3rem' }}>
-                {item.url &&
-                    <Link to={item.url}>
-                        {this.renderListItem(item, priorityClasses, truncateTextLength)}
-                    </Link>
-                }
-                {!item.url && this.renderListItem(item, priorityClasses, truncateTextLength)}
-                {item.text.length > truncateTextLength &&
-                    <div>
-                        <Button color="link" size="sm" onClick={this.expandText}>{showFullText ? 'Less' : 'More'}</Button>
-                    </div>
-                }
-                <ButtonGroup size="sm" style={{ padding: '0.2rem 0' }}>
-                    {this.renderActions(item)}
-                </ButtonGroup>
-                {successMessage && <p className="text-success description animated fadeIn">{successMessage}</p>}
-                {errorMessage && <p className="text-danger description animated fadeIn">{errorMessage}</p>}
+            <li className={(item.category && item.category.cssClass ? item.category.cssClass : 'x') && (item.isRead ? "message unread" : "message")} style={{ cursor: 'default', padding: '0.3rem' }}>
+                    {item.url &&
+                        <Link to={item.url}>
+                            {this.renderListItem(item, priorityClasses, truncateTextLength)}
+                        </Link>
+                    }
+                    {!item.url && this.renderListItem(item, priorityClasses, truncateTextLength)}
+                    {item.text.length > truncateTextLength &&
+                        <div>
+                            <Button color="link" size="sm" onClick={this.expandText}>{showFullText ? 'Less' : 'More'}</Button>
+                        </div>
+                    }
+                    <ButtonGroup size="sm" style={{ padding: '0.2rem 0' }}>
+                        {this.renderActions(item)}
+                    </ButtonGroup>
+                    {successMessage && <p className="text-success description animated fadeIn">{successMessage}</p>}
+                    {errorMessage && <p className="text-danger description animated fadeIn">{errorMessage}</p>}
+
             </li>)
     }
 }
