@@ -5,7 +5,8 @@ import './index.css'
 
 // import NotificationList from './components/NotificationList';
 // import { NotificationList } from './components/CompositeComponent';
-import { NotificationList } from 'notification-list';
+// import { NotificationList } from 'notification-list';
+import { NotificationList } from '../dist';
 
 class App extends Component {
     constructor(props) {
@@ -57,7 +58,7 @@ class App extends Component {
                     category: {
                         name: 'Important',
                         icon: 'fa fa-exclamation-triangle',
-                        cssClass: ''
+                        cssClass: 'bg-primary'
                     },
                     url: '/detail',
                     isRead: true,

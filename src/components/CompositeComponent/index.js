@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
-import { Alert, Badge, Button, ButtonGroup, ButtonDropdown, Card, CardHeader, CardBody, CardTitle, DropdownItem, DropdownMenu, DropdownToggle, Media } from 'reactstrap';
+import { Alert, Badge, Button, ButtonGroup, ButtonDropdown, Card, CardHeader, CardBody, CardTitle, CardText, DropdownItem, DropdownMenu, DropdownToggle, Media } from 'reactstrap';
 
 export class NotificationList extends PureComponent {
 
@@ -327,38 +327,40 @@ export class NotificationListItem extends PureComponent {
     renderListItem(item, priorityClasses, truncateTextLength) {
         return (
             <div>
-                <div className="header">
+                <CardHeader style={{ padding: '0.3rem 0.7rem', borderBottom: 'none' }} className={!!item.category ? item.category.cssClass : ''}>
+                    <div className="header" style={{ margin: '0' }}>
+                        <span className="from">
+                            {priorityClasses &&
+                                <h6>
+                                    <Badge color={priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>
+                                    <span className="title"> {item.title}</span>
+                                </h6>}
+                            {item.alert && <Alert color={item.alert.color} style={{ padding: '0.2rem 0.3rem' }}>{item.alert.text}</Alert>}
 
-                    <span className="from">
-                        {priorityClasses &&
-                            <h6>
-                                <Badge color={priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>
-                                <span className="title"> {item.title}</span>
-                            </h6>}
-                        {item.alert && <Alert color={item.alert.color}>{item.alert.text}</Alert>}
-                    </span>
-                    <span className="date"><span className="fa fa-paper-clip"></span>{item.date.displayDate}</span>
+                        </span>
+                    </div>
+                </CardHeader>
+                <CardBody style={{ padding: '0.5rem' }}>
+                    <CardText>
+                        <h6>{item.category ? item.category.name : ''}</h6>
+                        <Media>
+                            {item.sender && item.sender.avatarUrl &&
+                                <Media>
+                                    <Media object src={item.sender.avatarUrl} alt="Client avatar" className="img-avatar" style={{ height: '3.5rem' }} />
+                                </Media>
+                            }
+                            <Media body>
 
-                </div>
+                                <div className="title" style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>
+                                    {item.sender && item.sender && <span className="title"> {item.sender.firstName} {item.sender.lastName}</span>}
+                                    <span className="description date" style={{ float: 'right' }}><span className="fa fa-paper-clip"></span>{item.date.displayDate}</span>
+                                </div>
+                                <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{item.text.length > truncateTextLength ? this.truncateText(item.text, truncateTextLength) : item.text}</p>
 
-                <div className="description">
-                    <h6>{item.category ? item.category.name : ''}</h6>
-                    <Media>
-                        {item.sender && item.sender.avatarUrl &&
-                            <Media>
-                                <Media object src={item.sender.avatarUrl} alt="Client avatar" style={{ height: '3rem' }} />
                             </Media>
-                        }
-                        <Media body>
-
-                            <div className="title" style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>
-                                {item.sender && item.sender && <span className="title"> {item.sender.firstName} {item.sender.lastName}</span>}
-                            </div>
-                            <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{item.text.length > truncateTextLength ? this.truncateText(item.text, truncateTextLength) : item.text}</p>
-
                         </Media>
-                    </Media>
-                </div>
+                    </CardText>
+                </CardBody>
             </div>
 
         );
@@ -372,7 +374,8 @@ export class NotificationListItem extends PureComponent {
         const { successMessage, errorMessage, showFullText } = this.state;
         const { item, priorityClasses, truncateTextLength } = this.props;
         return (
-            <li className={(item.category && item.category.cssClass ? item.category.cssClass : 'x') && (item.isRead ? "message unread" : "message")} style={{ cursor: 'default', padding: '0.3rem' }}>
+            <li className={(item.category && item.category.cssClass ? item.category.cssClass : 'x') && (item.isRead ? "message unread" : "message")} style={{ cursor: 'default', padding: '0' }}>
+                <Card style={{border: 'none'}}>
                     {item.url &&
                         <Link to={item.url}>
                             {this.renderListItem(item, priorityClasses, truncateTextLength)}
@@ -389,6 +392,8 @@ export class NotificationListItem extends PureComponent {
                     </ButtonGroup>
                     {successMessage && <p className="text-success description animated fadeIn">{successMessage}</p>}
                     {errorMessage && <p className="text-danger description animated fadeIn">{errorMessage}</p>}
+                </Card>
+
 
             </li>)
     }
