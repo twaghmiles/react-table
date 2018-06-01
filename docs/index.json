@@ -1,0 +1,1494 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "CompositeComponent/.external-ecmascript.js",
+    "static": true,
+    "longname": "CompositeComponent/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "CompositeComponent/index.js",
+    "content": "import React, { PureComponent } from 'react';\r\nimport { Link } from 'react-router-dom';\r\nimport propTypes from 'prop-types';\r\nimport { Alert, Badge, Button, ButtonGroup, ButtonDropdown, Card, CardHeader, CardBody, CardTitle, DropdownItem, DropdownMenu, DropdownToggle, Media } from 'reactstrap';\r\n\r\nexport class NotificationList extends PureComponent {\r\n\r\n    constructor(props) {\r\n        super(props);\r\n\r\n        const { defaultSortBy, items } = this.props;\r\n\r\n        this.state = {\r\n            sortBy: defaultSortBy || 'date',\r\n            sortDesc: false,\r\n            filteredItems: items,\r\n            isSortingDropdownOpen: false,\r\n            isFilteringDropdownOpen: false,\r\n            successMessage: null,\r\n            errorMessage: null\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Compares 2 objects based on their property values .\r\n     * @param {Object} a - Object to be compared.\r\n     * @param {Object} b - Notification list item passed to the function.\r\n     * @param {any} propIn1 - Property of the passed in objects a and b.\r\n     * @param {any} propIn2 - Property of propIn1 of the passed in objects a and b.\r\n     * @return {number} Comparison result.\r\n     */\r\n    compare(a, b, propIn1, propIn2) {\r\n        let prop1 = null;\r\n        let prop2 = null;\r\n        if (this.state.sortDesc) {\r\n            prop1 = !!propIn2 ? b[propIn1][propIn2] : b[propIn1];\r\n            prop2 = !!propIn2 ? a[propIn1][propIn2] : a[propIn1];\r\n        } else {\r\n            prop1 = !!propIn2 ? a[propIn1][propIn2] : a[propIn1];\r\n            prop2 = !!propIn2 ? b[propIn1][propIn2] : b[propIn1];\r\n        }\r\n\r\n        let comparison = 0;\r\n        if (prop1 > prop2) {\r\n            comparison = 1;\r\n        } else if (prop1 < prop2) {\r\n            comparison = -1;\r\n        }\r\n        return comparison;\r\n    }\r\n\r\n    /**\r\n     * Toggles dropdown visibility\r\n     * @param {string} key - A key in the state object based on which to toggle visibility\r\n     */\r\n    toggle = (key) => {\r\n        const isDropdownOpen = this.state[key];\r\n        this.setState({\r\n            [key]: !isDropdownOpen\r\n        });\r\n    }\r\n\r\n\r\n    /**\r\n     * Call's the passed in function with item as it's parameter . If the passed in object return an object with properties isSuccess and message then a success or error message can be displayed.\r\n     * @param {Function} func - Function to be called on onClick.\r\n     * @param {Object} item - Notification list item passed to the function.\r\n     */\r\n    handleAction = (func) => {\r\n        const resp = func();\r\n        if (resp && resp.isSuccess) {\r\n            this.setState({ successMessage: resp && resp.message ? resp.message : 'Done!' });\r\n            setTimeout(() => this.setState({ successMessage: null }), 3000);\r\n        } else {\r\n            this.setState({ errorMessage: resp && resp.message ? resp.message : 'Something went wrong...' });\r\n            setTimeout(() => this.setState({ errorMessage: null }), 3000);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Sets the sort by property and toggles asc/desc sorting\r\n     * @param {string} fieldName - Functions based into filter iterator.\r\n     */\r\n    handleSort = (fieldName) => {\r\n        const { sortDesc } = this.state;\r\n        this.setState({ sortBy: fieldName, sortDesc: !sortDesc });\r\n    }\r\n\r\n    /**\r\n     * Filters notification list items based on a predicate function\r\n     * @param {Function} predicateFunc - Functions based into filter iterator.\r\n     */\r\n    handleFilter = (predicateFunc) => {\r\n        const { items } = this.props;\r\n        this.setState({ filteredItems: items.filter(predicateFunc) });\r\n    }\r\n\r\n    /**\r\n     * Call's the passed in function with passed in object's passed in property\r\n     * @param {Function} func - Function to be called.\r\n     * @param {Object} obj - Notification list item passed to the function.\r\n     * @param {any} prm - Notification list item passed to the function.\r\n     * @return {any} Value retrieved by calling the function.\r\n     */\r\n    handleClick(func, obj, prm) {\r\n        return func(obj[prm]);\r\n    }\r\n\r\n    /**\r\n     * Renders the actions passed into the function.\r\n     * @param {Array} actions - Actions with correspoding functions to rendered with event handlers.\r\n     * @return {Object} JSX code for action buttons with onClick event handlers.\r\n     */\r\n    renderActions(actions) {\r\n        if (actions) {\r\n            return (\r\n                <div>\r\n                    {\r\n                        actions.map(action => {\r\n                            return <Button\r\n                                key={action.icon} color={action.color} onClick={() => this.handleAction(action.func)}><i className={action.icon}></i> {action.name}</Button>\r\n                        })\r\n                    }\r\n                </div>\r\n            )\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Renders button dropdowns with corresponding action and label names.\r\n     * @param {boolean} isOpenKey - Indicates if dropdown is open or not\r\n     * @param {arr} arr - An array of dropdown values.\r\n     * @param {Function} action - A function to be called on each dropdown item.\r\n     * @param {any} actionPrm - A parameter to passed into the function call.\r\n     * @param {string} actionName - Text to be displayed on dropdown group.\r\n     * @return {Object} JSX code for action buttons with onClick event handlers.\r\n     */\r\n    renderButtonDropdown(isOpenKey, arr, action, actionPrm, actionName) {\r\n        const isDropdownOpen = this.state[isOpenKey];\r\n        return (\r\n            <ButtonDropdown isOpen={isDropdownOpen} toggle={() => this.toggle(isOpenKey)}>\r\n                <DropdownToggle caret>\r\n                    {actionName}\r\n                </DropdownToggle>\r\n                <DropdownMenu>\r\n                    {\r\n                        arr.map(e => {\r\n                            return <DropdownItem onClick={() => this.handleClick(action, e, actionPrm)} key={e.title}>\r\n                                {actionName} {e.title}\r\n                            </DropdownItem >\r\n                        })\r\n                    }\r\n                </DropdownMenu>\r\n            </ButtonDropdown>\r\n        )\r\n    }\r\n\r\n    /**\r\n     * Renders notification list items inside notification list\r\n     * @return {Object} JSX code for Notification list.\r\n     */\r\n    renderTableItems() {\r\n        const { sortableFields, emptyPage, priorityClasses, truncateTextLength } = this.props;\r\n        const { filteredItems, sortBy } = this.state;\r\n        const sortableProperty = sortableFields.find(f => f.title === sortBy);\r\n        if (filteredItems && filteredItems.length > 0) {\r\n            return (\r\n                <ul className=\"messages\">\r\n                    {\r\n                        filteredItems\r\n                            .sort((a, b) => this.compare(b, a, sortBy, sortableProperty ? sortableProperty.sortByProp : null))\r\n                            .map(item => {\r\n                                return (\r\n                                    <NotificationListItem\r\n                                        item={Object.assign({}, item)}\r\n                                        priorityClasses={priorityClasses}\r\n                                        truncateTextLength={truncateTextLength}\r\n                                        key={item.id} />\r\n                                )\r\n                            })\r\n                    }\r\n                </ul>\r\n            )\r\n        } else {\r\n            return (\r\n                <div>\r\n                    {emptyPage}\r\n                </div>\r\n            );\r\n        }\r\n\r\n    }\r\n\r\n    /**\r\n     * Components render fucntion\r\n     * @return {Object} JSX code for Notification list.\r\n     */\r\n    render() {\r\n        const { successMessage, errorMessage } = this.state;\r\n        const { icon, title, actions, sortableFields, filters } = this.props;\r\n        return (\r\n            <Card>\r\n                <CardHeader>\r\n                    {icon && <i className={icon}></i>} {title}\r\n                </CardHeader>\r\n                <CardBody>\r\n                    <CardTitle>\r\n                        {this.renderButtonDropdown('isSortingDropdownOpen', sortableFields, this.handleSort, 'title', 'Sort by')}\r\n                        {this.renderButtonDropdown('isFilteringDropdownOpen', filters, this.handleFilter, 'predicateFunc', 'Show')}\r\n                        <ButtonGroup>\r\n                            {this.renderActions(actions)}\r\n                        </ButtonGroup>\r\n                    </CardTitle>\r\n                    {successMessage &&\r\n                        <Alert color=\"success animated fadeIn\">\r\n                            {successMessage}\r\n                        </Alert>\r\n                    }\r\n                    {errorMessage &&\r\n                        <Alert color=\"danger animated fadeIn\">\r\n                            {errorMessage}\r\n                        </Alert>\r\n                    }\r\n                    <div className=\"animated fadeIn\">\r\n                        <div className=\"email-app mb-4\" style={{ border: 'none' }}>\r\n                            <main className=\"inbox\">\r\n                                {this.renderTableItems()}\r\n                            </main>\r\n                        </div>\r\n                    </div>\r\n                </CardBody>\r\n            </Card>\r\n        )\r\n    }\r\n}\r\n\r\nNotificationList.propTypes = {\r\n    title: propTypes.string.isRequired,\r\n    icon: propTypes.string,\r\n    items: propTypes.array.isRequired,\r\n    priorityClasses: propTypes.instanceOf(Map),\r\n    sortableFields: propTypes.array,\r\n    actions: propTypes.array,\r\n    filters: propTypes.array\r\n}\r\n\r\nexport class NotificationListItem extends PureComponent {\r\n\r\n    /**\r\n     * @param {Object} props - Passed in props.\r\n     * @member {string} state.fulltext - Component state.\r\n     */\r\n    constructor(props) {\r\n        super(props);\r\n\r\n        this.state = {\r\n            showFullText: false,\r\n            successMessage: null,\r\n            errorMessage: null\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Truncates text if it's longer that specified limit.\r\n     * @param {string} text - Text to be truncated.\r\n     * @param {string} truncateLength - The length starting from which the text will be truncated.\r\n     * @return {string} Truncated text.\r\n     */\r\n    truncateText(text, truncateLength) {\r\n        const { showFullText } = this.state;\r\n        if (text.length > truncateLength && !showFullText) {\r\n            return `${text.substring(0, truncateLength)}...`;\r\n        }\r\n        return text;\r\n    }\r\n\r\n    /**\r\n     * Toggles showing full text if text has been truncated based on this.state.showFullText\r\n     */\r\n    expandText = () => {\r\n        const { showFullText } = this.state;\r\n        this.setState({ showFullText: !showFullText });\r\n    }\r\n\r\n    /**\r\n     * Call's the action based in to onClick handle and passes in the action attached to item's type object. If the passed in object return an object with properties isSuccess and message then a success or error message can be displayed.\r\n     * @param {Function} func - Function to be called on onClick.\r\n     * @param {Object} item - Notification list item passed to the function.\r\n     */\r\n    handleAction = (func, item) => {\r\n        const resp = func(item);\r\n        if (resp && resp.isSuccess) {\r\n            this.setState({ successMessage: resp && resp.message ? resp.message : 'Done!' });\r\n            setTimeout(() => this.setState({ successMessage: null }), 3000);\r\n        } else {\r\n            this.setState({ errorMessage: resp && resp.message ? resp.message : 'Something went wrong...' });\r\n            setTimeout(() => this.setState({ errorMessage: null }), 3000);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Renders the actions passed into item.type.actions array\r\n     * @param {Object} item - Notification list item.\r\n     * @return {Object} JSX code for action buttons with onClick event handlers.\r\n     */\r\n    renderActions(item) {\r\n        if (item.type && item.type.actions) {\r\n            return (\r\n                <div>\r\n                    {\r\n                        item.type.actions.map(action => {\r\n                            return <Button key={action.icon} color={action.color} onClick={() => this.handleAction(action.func, item)}><i className={action.icon}></i> {action.name}</Button>\r\n                        })\r\n                    }\r\n                </div>\r\n            )\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Renders individual list items\r\n     * @param {Object} item - Notification list item.\r\n     * @param {Map} priorityClasses - A map of priority name's and associated reactstrap colorClasses.\r\n     * @param {string} truncateTextLength - The length starting from which the text will be truncated.\r\n     * @return {Object} JSX code for Notification list item.\r\n     */\r\n    renderListItem(item, priorityClasses, truncateTextLength) {\r\n        return (\r\n            <div>\r\n                <div className=\"header\">\r\n\r\n                    <span className=\"from\">\r\n                        {priorityClasses &&\r\n                            <h6>\r\n                                <Badge color={priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>\r\n                                <span className=\"title\"> {item.title}</span>\r\n                            </h6>}\r\n                        {item.alert && <Alert color={item.alert.color}>{item.alert.text}</Alert>}\r\n                    </span>\r\n                    <span className=\"date\"><span className=\"fa fa-paper-clip\"></span>{item.date.displayDate}</span>\r\n\r\n                </div>\r\n\r\n                <div className=\"description\">\r\n                    <h6>{item.category ? item.category.name : ''}</h6>\r\n                    <Media>\r\n                        {item.sender && item.sender.avatarUrl &&\r\n                            <Media>\r\n                                <Media object src={item.sender.avatarUrl} alt=\"Client avatar\" style={{ height: '3rem' }} />\r\n                            </Media>\r\n                        }\r\n                        <Media body>\r\n\r\n                            <div className=\"title\" style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>\r\n                                {item.sender && item.sender && <span className=\"title\"> {item.sender.firstName} {item.sender.lastName}</span>}\r\n                            </div>\r\n                            <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{item.text.length > truncateTextLength ? this.truncateText(item.text, truncateTextLength) : item.text}</p>\r\n\r\n                        </Media>\r\n                    </Media>\r\n                </div>\r\n            </div>\r\n\r\n        );\r\n    }\r\n\r\n    /**\r\n     * Components render fucntion\r\n     * @return {Object} JSX code for Notification list item.\r\n     */\r\n    render() {\r\n        const { successMessage, errorMessage, showFullText } = this.state;\r\n        const { item, priorityClasses, truncateTextLength } = this.props;\r\n        return (\r\n            <li className={(item.category && item.category.cssClass ? item.category.cssClass : 'x') && (item.isRead ? \"message unread\" : \"message\")} style={{ cursor: 'default', padding: '0.3rem' }}>\r\n                    {item.url &&\r\n                        <Link to={item.url}>\r\n                            {this.renderListItem(item, priorityClasses, truncateTextLength)}\r\n                        </Link>\r\n                    }\r\n                    {!item.url && this.renderListItem(item, priorityClasses, truncateTextLength)}\r\n                    {item.text.length > truncateTextLength &&\r\n                        <div>\r\n                            <Button color=\"link\" size=\"sm\" onClick={this.expandText}>{showFullText ? 'Less' : 'More'}</Button>\r\n                        </div>\r\n                    }\r\n                    <ButtonGroup size=\"sm\" style={{ padding: '0.2rem 0' }}>\r\n                        {this.renderActions(item)}\r\n                    </ButtonGroup>\r\n                    {successMessage && <p className=\"text-success description animated fadeIn\">{successMessage}</p>}\r\n                    {errorMessage && <p className=\"text-danger description animated fadeIn\">{errorMessage}</p>}\r\n\r\n            </li>)\r\n    }\r\n}\r\n\r\nNotificationListItem.propTypes = {\r\n    item: propTypes.object.isRequired,\r\n    priorityClasses: propTypes.instanceOf(Map).isRequired,\r\n    truncateTextLength: propTypes.number.isRequired\r\n}\r\n\r\nexport class NotificationListItemPreview extends PureComponent {\r\n\r\n    /**\r\n     * @param {Object} props - Passed in props.\r\n     * @member {string} state.fulltext - Component state.\r\n     */\r\n    constructor(props) {\r\n        super(props);\r\n\r\n        this.state = {\r\n            showFullText: false,\r\n            successMessage: null,\r\n            errorMessage: null\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Truncates text if it's longer that specified limit.\r\n     * @param {string} text - Text to be truncated.\r\n     * @param {string} truncateLength - The length starting from which the text will be truncated.\r\n     * @return {string} Truncated text.\r\n     */\r\n    truncateText(text, truncateLength) {\r\n        const { showFullText } = this.state;\r\n        if (text.length > truncateLength && !showFullText) {\r\n            return `${text.substring(0, truncateLength)}...`;\r\n        }\r\n        return text;\r\n    }\r\n\r\n    /**\r\n     * Call's the passed in function with item as it's parameter . If the passed in object return an object with properties isSuccess and message then a success or error message can be displayed.\r\n     * @param {Function} func - Function to be called on onClick.\r\n     * @param {Object} item - Notification list item passed to the function.\r\n     */\r\n    handleAction = (func, item) => {\r\n        const resp = func(item);\r\n        if (resp && resp.isSuccess) {\r\n            this.setState({ successMessage: resp && resp.message ? resp.message : 'Done!' });\r\n            setTimeout(() => this.setState({ successMessage: null }), 3000);\r\n        } else {\r\n            this.setState({ errorMessage: resp && resp.message ? resp.message : 'Something went wrong...' });\r\n            setTimeout(() => this.setState({ errorMessage: null }), 3000);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Renders the actions passed into item.type.actions array\r\n     * @param {Object} item - Notification list item.\r\n     * @return {Object} JSX code for action buttons with onClick event handlers.\r\n     */\r\n    renderActions(item) {\r\n        if (item.type && item.type.actions) {\r\n            return (\r\n                <div>\r\n                    {\r\n                        item.type.actions.map(action => {\r\n                            return <Button key={action.icon} color={action.color} onClick={() => this.handleAction(action.func, item)} style={{ padding: '0.1rem' }}><i className={action.icon}></i> {action.name}</Button>\r\n                        })\r\n                    }\r\n                </div>\r\n            )\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Components render fucntion\r\n     * @return {Object} JSX code for Notification list item.\r\n     */\r\n    render() {\r\n        const { successMessage, errorMessage } = this.state;\r\n        const { item, truncateTextLength } = this.props;\r\n        return (\r\n            <div className=\"message\" style={{ borderBottom: '1px solid #c2cfd6' }}>\r\n                <DropdownItem href=\"#\" style={{ border: 'none' }}>\r\n                    <div>\r\n                        <div>\r\n                            <small className=\"text-muted\">{item.sender.firstName} {item.sender.lastName}</small>\r\n                            <small className=\"text-muted float-right mt-1\">{item.date.displayDate}</small>\r\n                        </div>\r\n                        <div className=\"text-truncate font-weight-bold\">\r\n                            <span className={item.type.icon} /> {item.title}\r\n                        </div>\r\n                        <div className=\"small text-muted text-truncate\">\r\n                            {item.text.length > truncateTextLength ? this.truncateText(item.text, truncateTextLength) : item.text}\r\n                        </div>\r\n                    </div>\r\n\r\n                    {successMessage && <p className=\"text-success description animated fadeIn\">{successMessage}</p>}\r\n                    {errorMessage && <p className=\"text-danger description animated fadeIn\">{errorMessage}</p>}\r\n                </DropdownItem>\r\n                <ButtonGroup size=\"sm\" style={{ padding: '0.1rem 0.5rem' }} className=\"message\">\r\n                    {this.renderActions(item)}\r\n                </ButtonGroup>\r\n\r\n            </div>\r\n        );\r\n    }\r\n}\r\n\r\nNotificationListItemPreview.propTypes = {\r\n    item: propTypes.object.isRequired,\r\n    truncateTextLength: propTypes.number.isRequired\r\n}\r\n\r\n",
+    "static": true,
+    "longname": "C:/dev/react-table-v1/src/components/CompositeComponent/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "class",
+    "name": "NotificationList",
+    "memberof": "CompositeComponent/index.js",
+    "static": true,
+    "longname": "CompositeComponent/index.js~NotificationList",
+    "access": "public",
+    "export": true,
+    "importPath": "table/CompositeComponent/index.js",
+    "importStyle": "{NotificationList}",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~PureComponent"
+    ]
+  },
+  {
+    "__docId__": 50,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "member",
+    "name": "state",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"sortBy\": *, \"sortDesc\": *, \"filteredItems\": *, \"isSortingDropdownOpen\": *, \"isFilteringDropdownOpen\": *, \"successMessage\": *, \"errorMessage\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "method",
+    "name": "compare",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#compare",
+    "access": "public",
+    "description": "Compares 2 objects based on their property values .",
+    "lineNumber": 32,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "a",
+        "description": "Object to be compared."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "b",
+        "description": "Notification list item passed to the function."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "propIn1",
+        "description": "Property of the passed in objects a and b."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "propIn2",
+        "description": "Property of propIn1 of the passed in objects a and b."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "Comparison result."
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "member",
+    "name": "toggle",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#toggle",
+    "access": "public",
+    "description": "Toggles dropdown visibility",
+    "lineNumber": 56,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "key",
+        "description": "A key in the state object based on which to toggle visibility"
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "member",
+    "name": "handleAction",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#handleAction",
+    "access": "public",
+    "description": "Call's the passed in function with item as it's parameter . If the passed in object return an object with properties isSuccess and message then a success or error message can be displayed.",
+    "lineNumber": 69,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "func",
+        "description": "Function to be called on onClick."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "item",
+        "description": "Notification list item passed to the function."
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "member",
+    "name": "handleSort",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#handleSort",
+    "access": "public",
+    "description": "Sets the sort by property and toggles asc/desc sorting",
+    "lineNumber": 84,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "fieldName",
+        "description": "Functions based into filter iterator."
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "member",
+    "name": "handleFilter",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#handleFilter",
+    "access": "public",
+    "description": "Filters notification list items based on a predicate function",
+    "lineNumber": 93,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "predicateFunc",
+        "description": "Functions based into filter iterator."
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "method",
+    "name": "handleClick",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#handleClick",
+    "access": "public",
+    "description": "Call's the passed in function with passed in object's passed in property",
+    "lineNumber": 105,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "func",
+        "description": "Function to be called."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "obj",
+        "description": "Notification list item passed to the function."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "prm",
+        "description": "Notification list item passed to the function."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "any"
+      ],
+      "spread": false,
+      "description": "Value retrieved by calling the function."
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "method",
+    "name": "renderActions",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#renderActions",
+    "access": "public",
+    "description": "Renders the actions passed into the function.",
+    "lineNumber": 114,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Array"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "actions",
+        "description": "Actions with correspoding functions to rendered with event handlers."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "JSX code for action buttons with onClick event handlers."
+    }
+  },
+  {
+    "__docId__": 59,
+    "kind": "method",
+    "name": "renderButtonDropdown",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#renderButtonDropdown",
+    "access": "public",
+    "description": "Renders button dropdowns with corresponding action and label names.",
+    "lineNumber": 138,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "isOpenKey",
+        "description": "Indicates if dropdown is open or not"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "arr"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "arr",
+        "description": "An array of dropdown values."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "action",
+        "description": "A function to be called on each dropdown item."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "actionPrm",
+        "description": "A parameter to passed into the function call."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "actionName",
+        "description": "Text to be displayed on dropdown group."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "JSX code for action buttons with onClick event handlers."
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "method",
+    "name": "renderTableItems",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#renderTableItems",
+    "access": "public",
+    "description": "Renders notification list items inside notification list",
+    "lineNumber": 162,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "JSX code for Notification list."
+    },
+    "params": []
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "render",
+    "memberof": "CompositeComponent/index.js~NotificationList",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationList#render",
+    "access": "public",
+    "description": "Components render fucntion",
+    "lineNumber": 198,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "JSX code for Notification list."
+    },
+    "params": []
+  },
+  {
+    "__docId__": 62,
+    "kind": "class",
+    "name": "NotificationListItem",
+    "memberof": "CompositeComponent/index.js",
+    "static": true,
+    "longname": "CompositeComponent/index.js~NotificationListItem",
+    "access": "public",
+    "export": true,
+    "importPath": "table/CompositeComponent/index.js",
+    "importStyle": "{NotificationListItem}",
+    "description": null,
+    "lineNumber": 247,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~PureComponent"
+    ]
+  },
+  {
+    "__docId__": 63,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "CompositeComponent/index.js~NotificationListItem",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItem#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 253,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props",
+        "description": "Passed in props."
+      }
+    ]
+  },
+  {
+    "__docId__": 64,
+    "kind": "member",
+    "name": "state",
+    "memberof": "CompositeComponent/index.js~NotificationListItem",
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItem#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 256,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"showFullText\": *, \"successMessage\": *, \"errorMessage\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "method",
+    "name": "truncateText",
+    "memberof": "CompositeComponent/index.js~NotificationListItem",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItem#truncateText",
+    "access": "public",
+    "description": "Truncates text if it's longer that specified limit.",
+    "lineNumber": 269,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "Text to be truncated."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "truncateLength",
+        "description": "The length starting from which the text will be truncated."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "Truncated text."
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "member",
+    "name": "expandText",
+    "memberof": "CompositeComponent/index.js~NotificationListItem",
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItem#expandText",
+    "access": "public",
+    "description": "Toggles showing full text if text has been truncated based on this.state.showFullText",
+    "lineNumber": 280,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "member",
+    "name": "handleAction",
+    "memberof": "CompositeComponent/index.js~NotificationListItem",
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItem#handleAction",
+    "access": "public",
+    "description": "Call's the action based in to onClick handle and passes in the action attached to item's type object. If the passed in object return an object with properties isSuccess and message then a success or error message can be displayed.",
+    "lineNumber": 290,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "func",
+        "description": "Function to be called on onClick."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "item",
+        "description": "Notification list item passed to the function."
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "method",
+    "name": "renderActions",
+    "memberof": "CompositeComponent/index.js~NotificationListItem",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItem#renderActions",
+    "access": "public",
+    "description": "Renders the actions passed into item.type.actions array",
+    "lineNumber": 306,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "item",
+        "description": "Notification list item."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "JSX code for action buttons with onClick event handlers."
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "method",
+    "name": "renderListItem",
+    "memberof": "CompositeComponent/index.js~NotificationListItem",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItem#renderListItem",
+    "access": "public",
+    "description": "Renders individual list items",
+    "lineNumber": 327,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "item",
+        "description": "Notification list item."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Map"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "priorityClasses",
+        "description": "A map of priority name's and associated reactstrap colorClasses."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "truncateTextLength",
+        "description": "The length starting from which the text will be truncated."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "JSX code for Notification list item."
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "method",
+    "name": "render",
+    "memberof": "CompositeComponent/index.js~NotificationListItem",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItem#render",
+    "access": "public",
+    "description": "Components render fucntion",
+    "lineNumber": 371,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "JSX code for Notification list item."
+    },
+    "params": []
+  },
+  {
+    "__docId__": 71,
+    "kind": "class",
+    "name": "NotificationListItemPreview",
+    "memberof": "CompositeComponent/index.js",
+    "static": true,
+    "longname": "CompositeComponent/index.js~NotificationListItemPreview",
+    "access": "public",
+    "export": true,
+    "importPath": "table/CompositeComponent/index.js",
+    "importStyle": "{NotificationListItemPreview}",
+    "description": null,
+    "lineNumber": 403,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~PureComponent"
+    ]
+  },
+  {
+    "__docId__": 72,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "CompositeComponent/index.js~NotificationListItemPreview",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItemPreview#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 409,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props",
+        "description": "Passed in props."
+      }
+    ]
+  },
+  {
+    "__docId__": 73,
+    "kind": "member",
+    "name": "state",
+    "memberof": "CompositeComponent/index.js~NotificationListItemPreview",
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItemPreview#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 412,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"showFullText\": *, \"successMessage\": *, \"errorMessage\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "method",
+    "name": "truncateText",
+    "memberof": "CompositeComponent/index.js~NotificationListItemPreview",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItemPreview#truncateText",
+    "access": "public",
+    "description": "Truncates text if it's longer that specified limit.",
+    "lineNumber": 425,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "Text to be truncated."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "truncateLength",
+        "description": "The length starting from which the text will be truncated."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "Truncated text."
+    }
+  },
+  {
+    "__docId__": 75,
+    "kind": "member",
+    "name": "handleAction",
+    "memberof": "CompositeComponent/index.js~NotificationListItemPreview",
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItemPreview#handleAction",
+    "access": "public",
+    "description": "Call's the passed in function with item as it's parameter . If the passed in object return an object with properties isSuccess and message then a success or error message can be displayed.",
+    "lineNumber": 438,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "func",
+        "description": "Function to be called on onClick."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "item",
+        "description": "Notification list item passed to the function."
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "name": "renderActions",
+    "memberof": "CompositeComponent/index.js~NotificationListItemPreview",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItemPreview#renderActions",
+    "access": "public",
+    "description": "Renders the actions passed into item.type.actions array",
+    "lineNumber": 454,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "item",
+        "description": "Notification list item."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "JSX code for action buttons with onClick event handlers."
+    }
+  },
+  {
+    "__docId__": 77,
+    "kind": "method",
+    "name": "render",
+    "memberof": "CompositeComponent/index.js~NotificationListItemPreview",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "CompositeComponent/index.js~NotificationListItemPreview#render",
+    "access": "public",
+    "description": "Components render fucntion",
+    "lineNumber": 472,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "JSX code for Notification list item."
+    },
+    "params": []
+  },
+  {
+    "kind": "index",
+    "content": "React notification list component based on React Core UI\n\nUses font-awesome for icons and reactstrap for some components\n\nTo show success or error messages, event handlers should return an object with isSuccess flag to indicate wether an operation was successful and a message property with the text to be displayed\n\n Example of inputs:\n```{\n            title: 'Arrears',\n            icon: 'fa fa-bank',\n            items: [\n                {\n                    id: Math.floor(Math.random() * 1000000 + 1),\n                    type: {\n                        name: 'followUp',\n                        icon: '',\n                        actions: [\n                            {\n                                name: '',\n                                icon: 'fa fa-envelope-open-o',\n                                func: this.handleMarkAsRead,\n                                color: 'light'\n                            },\n                            {\n                                name: '',\n                                icon: 'fa fa fa-archive',\n                                func: this.handleMarkAsArchived,\n                                color: 'light'\n                            },\n                            {\n                                name: 'Call nr',\n                                icon: 'fa fa-phone-square',\n                                func: this.handlePhonecall,\n                                color: 'light'\n                            }\n                        ]\n                    },\n                    title: \"B Check check check\",\n                    date: {\n                        dateObj: new Date(\"2018-05-24 20:20\"),\n                        displayDate: moment(\"2018-05-24 20:20\", \"YYYY-MM-DD hh:mm\").fromNow()\n                    },\n                    alert: {\n                        text: 'Very late payment  + has suspicious face',\n                        color: 'danger'\n                    },\n                    priority: {\n                        name: \"High\",\n                        value: 1\n                    },\n                    category: {\n                        name: 'Important',\n                        icon: 'fa fa-exclamation-triangle',\n                        cssClass: 'bg-info white-text'\n                    },\n                    url: '/detail',\n                    isRead: true,\n                    isArchived: false,\n                    sender: {\n                        firstName: 'Alan',\n                        lastName: 'Turing',\n                        avatarUrl: 'https://www.biography.com/.image/t_share/MTE5NDg0MDU1MTUzMTE2Njg3/alan-turing-9512017-1-402.jpg'\n                    },\n                    text: \"The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.\"\n                }\n            ],\n            priorityClasses: new Map([['High', 'danger'], ['Medium', 'warning'], ['Low', 'success']]),\n            sortableFields: [\n                { title: 'priority', sortByProp: 'value' },\n                { title: 'date', sortByProp: 'dateObj' }\n            ],\n            actions: [\n                {\n                    name: 'Mark all as read',\n                    icon: 'fa fa-envelope-open-o',\n                    func: this.handleMarkAllItemsAsRead,\n                    color: 'success'\n                },\n                {\n                    name: 'Archive all',\n                    icon: 'fa fa fa-archive',\n                    func: this.handleMarkAllItemsAsArchived,\n                    color: 'success'\n                }\n            ],\n            filters: [\n                { title: 'All', predicateFunc: (item) => !!item },\n                { title: 'Unread', predicateFunc: (item) => !item.isRead },\n                { title: 'Archived', predicateFunc: (item) => item.isArchived }\n            ],\n            emptyPage: <Alert color=\"primary\">All clear, nothing to see here...</Alert>,\n            truncateTextLength: 500\n        }\n    }```",
+    "longname": "C:\\dev\\react-table-v1\\README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"table\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"autoprefixer\": \"7.1.6\",\n    \"babel-cli\": \"^6.26.0\",\n    \"babel-core\": \"6.26.0\",\n    \"babel-eslint\": \"7.2.3\",\n    \"babel-jest\": \"20.0.3\",\n    \"babel-loader\": \"7.1.2\",\n    \"babel-preset-env\": \"^1.7.0\",\n    \"babel-preset-es2015\": \"^6.24.1\",\n    \"babel-preset-react\": \"^6.24.1\",\n    \"babel-preset-react-app\": \"^3.1.1\",\n    \"babel-runtime\": \"6.26.0\",\n    \"bootstrap\": \"^4.1.1\",\n    \"case-sensitive-paths-webpack-plugin\": \"2.1.1\",\n    \"chalk\": \"1.1.3\",\n    \"css-loader\": \"0.28.7\",\n    \"dotenv\": \"4.0.0\",\n    \"dotenv-expand\": \"4.2.0\",\n    \"esdoc\": \"^1.1.0\",\n    \"eslint\": \"4.10.0\",\n    \"eslint-config-react-app\": \"^2.1.0\",\n    \"eslint-loader\": \"1.9.0\",\n    \"eslint-plugin-flowtype\": \"2.39.1\",\n    \"eslint-plugin-import\": \"2.8.0\",\n    \"eslint-plugin-jsx-a11y\": \"5.1.1\",\n    \"eslint-plugin-react\": \"7.4.0\",\n    \"extract-text-webpack-plugin\": \"3.0.2\",\n    \"file-loader\": \"1.1.5\",\n    \"flag-icon-css\": \"^3.0.0\",\n    \"font-awesome\": \"^4.7.0\",\n    \"fs-extra\": \"3.0.1\",\n    \"html-webpack-plugin\": \"2.29.0\",\n    \"jest\": \"20.0.4\",\n    \"moment\": \"^2.22.1\",\n    \"notification-list\": \"github:ijogi/react-core-ui-notification-list\",\n    \"object-assign\": \"4.1.1\",\n    \"postcss-flexbugs-fixes\": \"3.2.0\",\n    \"postcss-loader\": \"2.0.8\",\n    \"promise\": \"8.0.1\",\n    \"prop-types\": \"^15.6.1\",\n    \"raf\": \"3.4.0\",\n    \"react\": \"^16.3.2\",\n    \"react-dev-utils\": \"^5.0.1\",\n    \"react-dom\": \"^16.3.2\",\n    \"react-router\": \"^4.2.0\",\n    \"react-router-dom\": \"^4.2.2\",\n    \"reactstrap\": \"5.0.0-alpha.4\",\n    \"resolve\": \"1.6.0\",\n    \"simple-line-icons\": \"^2.4.1\",\n    \"style-loader\": \"0.19.0\",\n    \"sw-precache-webpack-plugin\": \"0.11.4\",\n    \"url-loader\": \"0.6.2\",\n    \"webpack\": \"3.8.1\",\n    \"webpack-dev-server\": \"2.9.4\",\n    \"webpack-manifest-plugin\": \"1.3.2\",\n    \"whatwg-fetch\": \"2.0.3\"\n  },\n  \"scripts\": {\n    \"start\": \"node scripts/start.js\",\n    \"build\": \"node scripts/build.js\",\n    \"transpile\": \"babel src/components/CompositeComponent -d ./dist --copy-files\",\n    \"test\": \"node scripts/test.js --env=jsdom\"\n  },\n  \"devDependencies\": {\n    \"babel-preset-stage-1\": \"^6.24.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-react-plugin\": \"^1.0.1\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"node-sass\": \"^4.9.0\",\n    \"sass-loader\": \"^7.0.1\"\n  },\n  \"jest\": {\n    \"collectCoverageFrom\": [\n      \"src/**/*.{js,jsx,mjs}\"\n    ],\n    \"setupFiles\": [\n      \"<rootDir>/config/polyfills.js\"\n    ],\n    \"testMatch\": [\n      \"<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}\",\n      \"<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}\"\n    ],\n    \"testEnvironment\": \"node\",\n    \"testURL\": \"http://localhost\",\n    \"transform\": {\n      \"^.+\\\\.(js|jsx|mjs)$\": \"<rootDir>/node_modules/babel-jest\",\n      \"^.+\\\\.css$\": \"<rootDir>/config/jest/cssTransform.js\",\n      \"^(?!.*\\\\.(js|jsx|mjs|css|json)$)\": \"<rootDir>/config/jest/fileTransform.js\"\n    },\n    \"transformIgnorePatterns\": [\n      \"[/\\\\\\\\]node_modules[/\\\\\\\\].+\\\\.(js|jsx|mjs)$\"\n    ],\n    \"moduleNameMapper\": {\n      \"^react-native$\": \"react-native-web\"\n    },\n    \"moduleFileExtensions\": [\n      \"web.js\",\n      \"js\",\n      \"json\",\n      \"web.jsx\",\n      \"jsx\",\n      \"node\",\n      \"mjs\"\n    ]\n  },\n  \"babel\": {\n    \"presets\": [\n      \"react-app\"\n    ]\n  },\n  \"eslintConfig\": {\n    \"extends\": \"react-app\"\n  }\n}\n",
+    "longname": "C:\\dev\\react-table-v1\\package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

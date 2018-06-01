@@ -20,6 +20,7 @@
     "css-loader": "0.28.7",
     "dotenv": "4.0.0",
     "dotenv-expand": "4.2.0",
+    "esdoc": "^1.1.0",
     "eslint": "4.10.0",
     "eslint-config-react-app": "^2.1.0",
     "eslint-loader": "1.9.0",
@@ -36,7 +37,6 @@
     "jest": "20.0.4",
     "moment": "^2.22.1",
     "notification-list": "github:ijogi/react-core-ui-notification-list",
-    "notification-list-item": "github:ijogi/react-core-ui-notification-list-item",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -66,6 +66,12 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
+    "babel-preset-stage-1": "^6.24.1",
+    "esdoc": "^1.1.0",
+    "esdoc-ecmascript-proposal-plugin": "^1.0.0",
+    "esdoc-jsx-plugin": "^1.0.0",
+    "esdoc-react-plugin": "^1.0.1",
+    "esdoc-standard-plugin": "^1.0.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1"
   },

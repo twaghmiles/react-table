@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl">
+  <title data-ice="title">Home | table</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/CompositeComponent/index.js~NotificationList.html">NotificationList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/CompositeComponent/index.js~NotificationListItem.html">NotificationListItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/CompositeComponent/index.js~NotificationListItemPreview.html">NotificationListItemPreview</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><p>React notification list component based on React Core UI</p>
+<p>Uses font-awesome for icons and reactstrap for some components</p>
+<p>To show success or error messages, event handlers should return an object with isSuccess flag to indicate wether an operation was successful and a message property with the text to be displayed</p>
+<p> Example of inputs:</p>
+<pre><code class="lang-{"><code class="source-code prettyprint">            title: &apos;Arrears&apos;,
+            icon: &apos;fa fa-bank&apos;,
+            items: [
+                {
+                    id: Math.floor(Math.random() * 1000000 + 1),
+                    type: {
+                        name: &apos;followUp&apos;,
+                        icon: &apos;&apos;,
+                        actions: [
+                            {
+                                name: &apos;&apos;,
+                                icon: &apos;fa fa-envelope-open-o&apos;,
+                                func: this.handleMarkAsRead,
+                                color: &apos;light&apos;
+                            },
+                            {
+                                name: &apos;&apos;,
+                                icon: &apos;fa fa fa-archive&apos;,
+                                func: this.handleMarkAsArchived,
+                                color: &apos;light&apos;
+                            },
+                            {
+                                name: &apos;Call nr&apos;,
+                                icon: &apos;fa fa-phone-square&apos;,
+                                func: this.handlePhonecall,
+                                color: &apos;light&apos;
+                            }
+                        ]
+                    },
+                    title: &quot;B Check check check&quot;,
+                    date: {
+                        dateObj: new Date(&quot;2018-05-24 20:20&quot;),
+                        displayDate: moment(&quot;2018-05-24 20:20&quot;, &quot;YYYY-MM-DD hh:mm&quot;).fromNow()
+                    },
+                    alert: {
+                        text: &apos;Very late payment  + has suspicious face&apos;,
+                        color: &apos;danger&apos;
+                    },
+                    priority: {
+                        name: &quot;High&quot;,
+                        value: 1
+                    },
+                    category: {
+                        name: &apos;Important&apos;,
+                        icon: &apos;fa fa-exclamation-triangle&apos;,
+                        cssClass: &apos;bg-info white-text&apos;
+                    },
+                    url: &apos;/detail&apos;,
+                    isRead: true,
+                    isArchived: false,
+                    sender: {
+                        firstName: &apos;Alan&apos;,
+                        lastName: &apos;Turing&apos;,
+                        avatarUrl: &apos;https://www.biography.com/.image/t_share/MTE5NDg0MDU1MTUzMTE2Njg3/alan-turing-9512017-1-402.jpg&apos;
+                    },
+                    text: &quot;The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother&apos;s keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.&quot;
+                }
+            ],
+            priorityClasses: new Map([[&apos;High&apos;, &apos;danger&apos;], [&apos;Medium&apos;, &apos;warning&apos;], [&apos;Low&apos;, &apos;success&apos;]]),
+            sortableFields: [
+                { title: &apos;priority&apos;, sortByProp: &apos;value&apos; },
+                { title: &apos;date&apos;, sortByProp: &apos;dateObj&apos; }
+            ],
+            actions: [
+                {
+                    name: &apos;Mark all as read&apos;,
+                    icon: &apos;fa fa-envelope-open-o&apos;,
+                    func: this.handleMarkAllItemsAsRead,
+                    color: &apos;success&apos;
+                },
+                {
+                    name: &apos;Archive all&apos;,
+                    icon: &apos;fa fa fa-archive&apos;,
+                    func: this.handleMarkAllItemsAsArchived,
+                    color: &apos;success&apos;
+                }
+            ],
+            filters: [
+                { title: &apos;All&apos;, predicateFunc: (item) =&gt; !!item },
+                { title: &apos;Unread&apos;, predicateFunc: (item) =&gt; !item.isRead },
+                { title: &apos;Archived&apos;, predicateFunc: (item) =&gt; item.isArchived }
+            ],
+            emptyPage: &lt;Alert color=&quot;primary&quot;&gt;All clear, nothing to see here...&lt;/Alert&gt;,
+            truncateTextLength: 500
+        }
+    }</code>
+</code></pre>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "coverage": "75.86%",
+  "expectCount": 29,
+  "actualCount": 22,
+  "files": {
+    "CompositeComponent/index.js": {
+      "expectCount": 29,
+      "actualCount": 22,
+      "undocumentLines": [
+        6,
+        8,
+        13,
+        247,
+        256,
+        403,
+        412
+      ]
+    }
+  }
+}

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">CompositeComponent/index.js | table</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/CompositeComponent/index.js~NotificationList.html">NotificationList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/CompositeComponent/index.js~NotificationListItem.html">NotificationListItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/CompositeComponent/index.js~NotificationListItemPreview.html">NotificationListItemPreview</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">CompositeComponent/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { PureComponent } from &apos;react&apos;;
+import { Link } from &apos;react-router-dom&apos;;
+import propTypes from &apos;prop-types&apos;;
+import { Alert, Badge, Button, ButtonGroup, ButtonDropdown, Card, CardHeader, CardBody, CardTitle, DropdownItem, DropdownMenu, DropdownToggle, Media } from &apos;reactstrap&apos;;
+
+export class NotificationList extends PureComponent {
+
+    constructor(props) {
+        super(props);
+
+        const { defaultSortBy, items } = this.props;
+
+        this.state = {
+            sortBy: defaultSortBy || &apos;date&apos;,
+            sortDesc: false,
+            filteredItems: items,
+            isSortingDropdownOpen: false,
+            isFilteringDropdownOpen: false,
+            successMessage: null,
+            errorMessage: null
+        }
+    }
+
+    /**
+     * Compares 2 objects based on their property values .
+     * @param {Object} a - Object to be compared.
+     * @param {Object} b - Notification list item passed to the function.
+     * @param {any} propIn1 - Property of the passed in objects a and b.
+     * @param {any} propIn2 - Property of propIn1 of the passed in objects a and b.
+     * @return {number} Comparison result.
+     */
+    compare(a, b, propIn1, propIn2) {
+        let prop1 = null;
+        let prop2 = null;
+        if (this.state.sortDesc) {
+            prop1 = !!propIn2 ? b[propIn1][propIn2] : b[propIn1];
+            prop2 = !!propIn2 ? a[propIn1][propIn2] : a[propIn1];
+        } else {
+            prop1 = !!propIn2 ? a[propIn1][propIn2] : a[propIn1];
+            prop2 = !!propIn2 ? b[propIn1][propIn2] : b[propIn1];
+        }
+
+        let comparison = 0;
+        if (prop1 &gt; prop2) {
+            comparison = 1;
+        } else if (prop1 &lt; prop2) {
+            comparison = -1;
+        }
+        return comparison;
+    }
+
+    /**
+     * Toggles dropdown visibility
+     * @param {string} key - A key in the state object based on which to toggle visibility
+     */
+    toggle = (key) =&gt; {
+        const isDropdownOpen = this.state[key];
+        this.setState({
+            [key]: !isDropdownOpen
+        });
+    }
+
+
+    /**
+     * Call&apos;s the passed in function with item as it&apos;s parameter . If the passed in object return an object with properties isSuccess and message then a success or error message can be displayed.
+     * @param {Function} func - Function to be called on onClick.
+     * @param {Object} item - Notification list item passed to the function.
+     */
+    handleAction = (func) =&gt; {
+        const resp = func();
+        if (resp &amp;&amp; resp.isSuccess) {
+            this.setState({ successMessage: resp &amp;&amp; resp.message ? resp.message : &apos;Done!&apos; });
+            setTimeout(() =&gt; this.setState({ successMessage: null }), 3000);
+        } else {
+            this.setState({ errorMessage: resp &amp;&amp; resp.message ? resp.message : &apos;Something went wrong...&apos; });
+            setTimeout(() =&gt; this.setState({ errorMessage: null }), 3000);
+        }
+    }
+
+    /**
+     * Sets the sort by property and toggles asc/desc sorting
+     * @param {string} fieldName - Functions based into filter iterator.
+     */
+    handleSort = (fieldName) =&gt; {
+        const { sortDesc } = this.state;
+        this.setState({ sortBy: fieldName, sortDesc: !sortDesc });
+    }
+
+    /**
+     * Filters notification list items based on a predicate function
+     * @param {Function} predicateFunc - Functions based into filter iterator.
+     */
+    handleFilter = (predicateFunc) =&gt; {
+        const { items } = this.props;
+        this.setState({ filteredItems: items.filter(predicateFunc) });
+    }
+
+    /**
+     * Call&apos;s the passed in function with passed in object&apos;s passed in property
+     * @param {Function} func - Function to be called.
+     * @param {Object} obj - Notification list item passed to the function.
+     * @param {any} prm - Notification list item passed to the function.
+     * @return {any} Value retrieved by calling the function.
+     */
+    handleClick(func, obj, prm) {
+        return func(obj[prm]);
+    }
+
+    /**
+     * Renders the actions passed into the function.
+     * @param {Array} actions - Actions with correspoding functions to rendered with event handlers.
+     * @return {Object} JSX code for action buttons with onClick event handlers.
+     */
+    renderActions(actions) {
+        if (actions) {
+            return (
+                &lt;div&gt;
+                    {
+                        actions.map(action =&gt; {
+                            return &lt;Button
+                                key={action.icon} color={action.color} onClick={() =&gt; this.handleAction(action.func)}&gt;&lt;i className={action.icon}&gt;&lt;/i&gt; {action.name}&lt;/Button&gt;
+                        })
+                    }
+                &lt;/div&gt;
+            )
+        }
+    }
+
+    /**
+     * Renders button dropdowns with corresponding action and label names.
+     * @param {boolean} isOpenKey - Indicates if dropdown is open or not
+     * @param {arr} arr - An array of dropdown values.
+     * @param {Function} action - A function to be called on each dropdown item.
+     * @param {any} actionPrm - A parameter to passed into the function call.
+     * @param {string} actionName - Text to be displayed on dropdown group.
+     * @return {Object} JSX code for action buttons with onClick event handlers.
+     */
+    renderButtonDropdown(isOpenKey, arr, action, actionPrm, actionName) {
+        const isDropdownOpen = this.state[isOpenKey];
+        return (
+            &lt;ButtonDropdown isOpen={isDropdownOpen} toggle={() =&gt; this.toggle(isOpenKey)}&gt;
+                &lt;DropdownToggle caret&gt;
+                    {actionName}
+                &lt;/DropdownToggle&gt;
+                &lt;DropdownMenu&gt;
+                    {
+                        arr.map(e =&gt; {
+                            return &lt;DropdownItem onClick={() =&gt; this.handleClick(action, e, actionPrm)} key={e.title}&gt;
+                                {actionName} {e.title}
+                            &lt;/DropdownItem &gt;
+                        })
+                    }
+                &lt;/DropdownMenu&gt;
+            &lt;/ButtonDropdown&gt;
+        )
+    }
+
+    /**
+     * Renders notification list items inside notification list
+     * @return {Object} JSX code for Notification list.
+     */
+    renderTableItems() {
+        const { sortableFields, emptyPage, priorityClasses, truncateTextLength } = this.props;
+        const { filteredItems, sortBy } = this.state;
+        const sortableProperty = sortableFields.find(f =&gt; f.title === sortBy);
+        if (filteredItems &amp;&amp; filteredItems.length &gt; 0) {
+            return (
+                &lt;ul className=&quot;messages&quot;&gt;
+                    {
+                        filteredItems
+                            .sort((a, b) =&gt; this.compare(b, a, sortBy, sortableProperty ? sortableProperty.sortByProp : null))
+                            .map(item =&gt; {
+                                return (
+                                    &lt;NotificationListItem
+                                        item={Object.assign({}, item)}
+                                        priorityClasses={priorityClasses}
+                                        truncateTextLength={truncateTextLength}
+                                        key={item.id} /&gt;
+                                )
+                            })
+                    }
+                &lt;/ul&gt;
+            )
+        } else {
+            return (
+                &lt;div&gt;
+                    {emptyPage}
+                &lt;/div&gt;
+            );
+        }
+
+    }
+
+    /**
+     * Components render fucntion
+     * @return {Object} JSX code for Notification list.
+     */
+    render() {
+        const { successMessage, errorMessage } = this.state;
+        const { icon, title, actions, sortableFields, filters } = this.props;
+        return (
+            &lt;Card&gt;
+                &lt;CardHeader&gt;
+                    {icon &amp;&amp; &lt;i className={icon}&gt;&lt;/i&gt;} {title}
+                &lt;/CardHeader&gt;
+                &lt;CardBody&gt;
+                    &lt;CardTitle&gt;
+                        {this.renderButtonDropdown(&apos;isSortingDropdownOpen&apos;, sortableFields, this.handleSort, &apos;title&apos;, &apos;Sort by&apos;)}
+                        {this.renderButtonDropdown(&apos;isFilteringDropdownOpen&apos;, filters, this.handleFilter, &apos;predicateFunc&apos;, &apos;Show&apos;)}
+                        &lt;ButtonGroup&gt;
+                            {this.renderActions(actions)}
+                        &lt;/ButtonGroup&gt;
+                    &lt;/CardTitle&gt;
+                    {successMessage &amp;&amp;
+                        &lt;Alert color=&quot;success animated fadeIn&quot;&gt;
+                            {successMessage}
+                        &lt;/Alert&gt;
+                    }
+                    {errorMessage &amp;&amp;
+                        &lt;Alert color=&quot;danger animated fadeIn&quot;&gt;
+                            {errorMessage}
+                        &lt;/Alert&gt;
+                    }
+                    &lt;div className=&quot;animated fadeIn&quot;&gt;
+                        &lt;div className=&quot;email-app mb-4&quot; style={{ border: &apos;none&apos; }}&gt;
+                            &lt;main className=&quot;inbox&quot;&gt;
+                                {this.renderTableItems()}
+                            &lt;/main&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/CardBody&gt;
+            &lt;/Card&gt;
+        )
+    }
+}
+
+NotificationList.propTypes = {
+    title: propTypes.string.isRequired,
+    icon: propTypes.string,
+    items: propTypes.array.isRequired,
+    priorityClasses: propTypes.instanceOf(Map),
+    sortableFields: propTypes.array,
+    actions: propTypes.array,
+    filters: propTypes.array
+}
+
+export class NotificationListItem extends PureComponent {
+
+    /**
+     * @param {Object} props - Passed in props.
+     * @member {string} state.fulltext - Component state.
+     */
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showFullText: false,
+            successMessage: null,
+            errorMessage: null
+        }
+    }
+
+    /**
+     * Truncates text if it&apos;s longer that specified limit.
+     * @param {string} text - Text to be truncated.
+     * @param {string} truncateLength - The length starting from which the text will be truncated.
+     * @return {string} Truncated text.
+     */
+    truncateText(text, truncateLength) {
+        const { showFullText } = this.state;
+        if (text.length &gt; truncateLength &amp;&amp; !showFullText) {
+            return `${text.substring(0, truncateLength)}...`;
+        }
+        return text;
+    }
+
+    /**
+     * Toggles showing full text if text has been truncated based on this.state.showFullText
+     */
+    expandText = () =&gt; {
+        const { showFullText } = this.state;
+        this.setState({ showFullText: !showFullText });
+    }
+
+    /**
+     * Call&apos;s the action based in to onClick handle and passes in the action attached to item&apos;s type object. If the passed in object return an object with properties isSuccess and message then a success or error message can be displayed.
+     * @param {Function} func - Function to be called on onClick.
+     * @param {Object} item - Notification list item passed to the function.
+     */
+    handleAction = (func, item) =&gt; {
+        const resp = func(item);
+        if (resp &amp;&amp; resp.isSuccess) {
+            this.setState({ successMessage: resp &amp;&amp; resp.message ? resp.message : &apos;Done!&apos; });
+            setTimeout(() =&gt; this.setState({ successMessage: null }), 3000);
+        } else {
+            this.setState({ errorMessage: resp &amp;&amp; resp.message ? resp.message : &apos;Something went wrong...&apos; });
+            setTimeout(() =&gt; this.setState({ errorMessage: null }), 3000);
+        }
+    }
+
+    /**
+     * Renders the actions passed into item.type.actions array
+     * @param {Object} item - Notification list item.
+     * @return {Object} JSX code for action buttons with onClick event handlers.
+     */
+    renderActions(item) {
+        if (item.type &amp;&amp; item.type.actions) {
+            return (
+                &lt;div&gt;
+                    {
+                        item.type.actions.map(action =&gt; {
+                            return &lt;Button key={action.icon} color={action.color} onClick={() =&gt; this.handleAction(action.func, item)}&gt;&lt;i className={action.icon}&gt;&lt;/i&gt; {action.name}&lt;/Button&gt;
+                        })
+                    }
+                &lt;/div&gt;
+            )
+        }
+    }
+
+    /**
+     * Renders individual list items
+     * @param {Object} item - Notification list item.
+     * @param {Map} priorityClasses - A map of priority name&apos;s and associated reactstrap colorClasses.
+     * @param {string} truncateTextLength - The length starting from which the text will be truncated.
+     * @return {Object} JSX code for Notification list item.
+     */
+    renderListItem(item, priorityClasses, truncateTextLength) {
+        return (
+            &lt;div&gt;
+                &lt;div className=&quot;header&quot;&gt;
+
+                    &lt;span className=&quot;from&quot;&gt;
+                        {priorityClasses &amp;&amp;
+                            &lt;h6&gt;
+                                &lt;Badge color={priorityClasses.get(item.priority.name)}&gt;{item.priority.name}&lt;/Badge&gt;
+                                &lt;span className=&quot;title&quot;&gt; {item.title}&lt;/span&gt;
+                            &lt;/h6&gt;}
+                        {item.alert &amp;&amp; &lt;Alert color={item.alert.color}&gt;{item.alert.text}&lt;/Alert&gt;}
+                    &lt;/span&gt;
+                    &lt;span className=&quot;date&quot;&gt;&lt;span className=&quot;fa fa-paper-clip&quot;&gt;&lt;/span&gt;{item.date.displayDate}&lt;/span&gt;
+
+                &lt;/div&gt;
+
+                &lt;div className=&quot;description&quot;&gt;
+                    &lt;h6&gt;{item.category ? item.category.name : &apos;&apos;}&lt;/h6&gt;
+                    &lt;Media&gt;
+                        {item.sender &amp;&amp; item.sender.avatarUrl &amp;&amp;
+                            &lt;Media&gt;
+                                &lt;Media object src={item.sender.avatarUrl} alt=&quot;Client avatar&quot; style={{ height: &apos;3rem&apos; }} /&gt;
+                            &lt;/Media&gt;
+                        }
+                        &lt;Media body&gt;
+
+                            &lt;div className=&quot;title&quot; style={item.sender &amp;&amp; item.sender.avatarUrl &amp;&amp; { margin: &apos;0 0.5rem&apos; }}&gt;
+                                {item.sender &amp;&amp; item.sender &amp;&amp; &lt;span className=&quot;title&quot;&gt; {item.sender.firstName} {item.sender.lastName}&lt;/span&gt;}
+                            &lt;/div&gt;
+                            &lt;p style={item.sender &amp;&amp; item.sender.avatarUrl &amp;&amp; { margin: &apos;0 0.5rem&apos; }}&gt;{item.text.length &gt; truncateTextLength ? this.truncateText(item.text, truncateTextLength) : item.text}&lt;/p&gt;
+
+                        &lt;/Media&gt;
+                    &lt;/Media&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+        );
+    }
+
+    /**
+     * Components render fucntion
+     * @return {Object} JSX code for Notification list item.
+     */
+    render() {
+        const { successMessage, errorMessage, showFullText } = this.state;
+        const { item, priorityClasses, truncateTextLength } = this.props;
+        return (
+            &lt;li className={(item.category &amp;&amp; item.category.cssClass ? item.category.cssClass : &apos;x&apos;) &amp;&amp; (item.isRead ? &quot;message unread&quot; : &quot;message&quot;)} style={{ cursor: &apos;default&apos;, padding: &apos;0.3rem&apos; }}&gt;
+                    {item.url &amp;&amp;
+                        &lt;Link to={item.url}&gt;
+                            {this.renderListItem(item, priorityClasses, truncateTextLength)}
+                        &lt;/Link&gt;
+                    }
+                    {!item.url &amp;&amp; this.renderListItem(item, priorityClasses, truncateTextLength)}
+                    {item.text.length &gt; truncateTextLength &amp;&amp;
+                        &lt;div&gt;
+                            &lt;Button color=&quot;link&quot; size=&quot;sm&quot; onClick={this.expandText}&gt;{showFullText ? &apos;Less&apos; : &apos;More&apos;}&lt;/Button&gt;
+                        &lt;/div&gt;
+                    }
+                    &lt;ButtonGroup size=&quot;sm&quot; style={{ padding: &apos;0.2rem 0&apos; }}&gt;
+                        {this.renderActions(item)}
+                    &lt;/ButtonGroup&gt;
+                    {successMessage &amp;&amp; &lt;p className=&quot;text-success description animated fadeIn&quot;&gt;{successMessage}&lt;/p&gt;}
+                    {errorMessage &amp;&amp; &lt;p className=&quot;text-danger description animated fadeIn&quot;&gt;{errorMessage}&lt;/p&gt;}
+
+            &lt;/li&gt;)
+    }
+}
+
+NotificationListItem.propTypes = {
+    item: propTypes.object.isRequired,
+    priorityClasses: propTypes.instanceOf(Map).isRequired,
+    truncateTextLength: propTypes.number.isRequired
+}
+
+export class NotificationListItemPreview extends PureComponent {
+
+    /**
+     * @param {Object} props - Passed in props.
+     * @member {string} state.fulltext - Component state.
+     */
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showFullText: false,
+            successMessage: null,
+            errorMessage: null
+        }
+    }
+
+    /**
+     * Truncates text if it&apos;s longer that specified limit.
+     * @param {string} text - Text to be truncated.
+     * @param {string} truncateLength - The length starting from which the text will be truncated.
+     * @return {string} Truncated text.
+     */
+    truncateText(text, truncateLength) {
+        const { showFullText } = this.state;
+        if (text.length &gt; truncateLength &amp;&amp; !showFullText) {
+            return `${text.substring(0, truncateLength)}...`;
+        }
+        return text;
+    }
+
+    /**
+     * Call&apos;s the passed in function with item as it&apos;s parameter . If the passed in object return an object with properties isSuccess and message then a success or error message can be displayed.
+     * @param {Function} func - Function to be called on onClick.
+     * @param {Object} item - Notification list item passed to the function.
+     */
+    handleAction = (func, item) =&gt; {
+        const resp = func(item);
+        if (resp &amp;&amp; resp.isSuccess) {
+            this.setState({ successMessage: resp &amp;&amp; resp.message ? resp.message : &apos;Done!&apos; });
+            setTimeout(() =&gt; this.setState({ successMessage: null }), 3000);
+        } else {
+            this.setState({ errorMessage: resp &amp;&amp; resp.message ? resp.message : &apos;Something went wrong...&apos; });
+            setTimeout(() =&gt; this.setState({ errorMessage: null }), 3000);
+        }
+    }
+
+    /**
+     * Renders the actions passed into item.type.actions array
+     * @param {Object} item - Notification list item.
+     * @return {Object} JSX code for action buttons with onClick event handlers.
+     */
+    renderActions(item) {
+        if (item.type &amp;&amp; item.type.actions) {
+            return (
+                &lt;div&gt;
+                    {
+                        item.type.actions.map(action =&gt; {
+                            return &lt;Button key={action.icon} color={action.color} onClick={() =&gt; this.handleAction(action.func, item)} style={{ padding: &apos;0.1rem&apos; }}&gt;&lt;i className={action.icon}&gt;&lt;/i&gt; {action.name}&lt;/Button&gt;
+                        })
+                    }
+                &lt;/div&gt;
+            )
+        }
+    }
+
+    /**
+     * Components render fucntion
+     * @return {Object} JSX code for Notification list item.
+     */
+    render() {
+        const { successMessage, errorMessage } = this.state;
+        const { item, truncateTextLength } = this.props;
+        return (
+            &lt;div className=&quot;message&quot; style={{ borderBottom: &apos;1px solid #c2cfd6&apos; }}&gt;
+                &lt;DropdownItem href=&quot;#&quot; style={{ border: &apos;none&apos; }}&gt;
+                    &lt;div&gt;
+                        &lt;div&gt;
+                            &lt;small className=&quot;text-muted&quot;&gt;{item.sender.firstName} {item.sender.lastName}&lt;/small&gt;
+                            &lt;small className=&quot;text-muted float-right mt-1&quot;&gt;{item.date.displayDate}&lt;/small&gt;
+                        &lt;/div&gt;
+                        &lt;div className=&quot;text-truncate font-weight-bold&quot;&gt;
+                            &lt;span className={item.type.icon} /&gt; {item.title}
+                        &lt;/div&gt;
+                        &lt;div className=&quot;small text-muted text-truncate&quot;&gt;
+                            {item.text.length &gt; truncateTextLength ? this.truncateText(item.text, truncateTextLength) : item.text}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    {successMessage &amp;&amp; &lt;p className=&quot;text-success description animated fadeIn&quot;&gt;{successMessage}&lt;/p&gt;}
+                    {errorMessage &amp;&amp; &lt;p className=&quot;text-danger description animated fadeIn&quot;&gt;{errorMessage}&lt;/p&gt;}
+                &lt;/DropdownItem&gt;
+                &lt;ButtonGroup size=&quot;sm&quot; style={{ padding: &apos;0.1rem 0.5rem&apos; }} className=&quot;message&quot;&gt;
+                    {this.renderActions(item)}
+                &lt;/ButtonGroup&gt;
+
+            &lt;/div&gt;
+        );
+    }
+}
+
+NotificationListItemPreview.propTypes = {
+    item: propTypes.object.isRequired,
+    truncateTextLength: propTypes.number.isRequired
+}
+
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
