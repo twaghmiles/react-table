@@ -131,7 +131,7 @@ class NotificationListItem extends PureComponent {
         const { successMessage, errorMessage, showFullText } = this.state;
         const { item, priorityClasses, truncateTextLength } = this.props;
         return (
-            <li className={!item && item.isRead ? "message unread" : "message" && (item.category && item.category.cssClass ? item.category.cssClass : '')} style={{ cursor: 'default', padding: '0.3rem' }}>
+            <li className={!item.isRead ? "message unread" : "message" && (item.category && item.category.cssClass ? item.category.cssClass : '')} style={{ cursor: 'default', padding: '0.3rem' }}>
                 {item.url &&
                     <Link to={item.url}>
                         {this.renderListItem(item, priorityClasses, truncateTextLength)}
