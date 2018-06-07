@@ -62,7 +62,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "transpile": "babel src/components/CompositeComponent -d ./dist --copy-files",
+    "transpile": "babel src/components/CompositeComponent -d ./dist --copy-files | node scripts/start.js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {

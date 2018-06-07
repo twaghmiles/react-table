@@ -374,8 +374,9 @@ export class NotificationListItem extends PureComponent {
         const { successMessage, errorMessage, showFullText } = this.state;
         const { item, priorityClasses, truncateTextLength } = this.props;
         return (
-            <li className={(item.category && item.category.cssClass ? item.category.cssClass : 'x') && (item.isRead ? "message unread" : "message")} style={{ cursor: 'default', padding: '0' }}>
-                <Card style={{border: 'none'}}>
+            <li className={(item.category && item.category.cssClass ? item.category.cssClass : 'x') && (item.isRead ? "message unread" : "message")}
+                style={{ cursor: 'default', padding: '0', marginBottom: '0.2rem', border: 'none' }}>
+                <Card style={{border: 'none'} && item.isRead ? {backgroundColor: '#f0f3f5'} : {}}>
                     {item.url &&
                         <Link to={item.url}>
                             {this.renderListItem(item, priorityClasses, truncateTextLength)}
@@ -387,7 +388,7 @@ export class NotificationListItem extends PureComponent {
                             <Button color="link" size="sm" onClick={this.expandText}>{showFullText ? 'Less' : 'More'}</Button>
                         </div>
                     }
-                    <ButtonGroup size="sm" style={{ padding: '0.2rem 0' }}>
+                    <ButtonGroup size="sm" style={{ padding: '0.4rem' }}>
                         {this.renderActions(item)}
                     </ButtonGroup>
                     {successMessage && <p className="text-success description animated fadeIn">{successMessage}</p>}

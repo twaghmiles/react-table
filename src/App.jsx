@@ -4,9 +4,9 @@ import moment from 'moment';
 import './index.css'
 
 // import NotificationList from './components/NotificationList';
-// import { NotificationList } from './components/CompositeComponent';
+import { NotificationList } from './components/CompositeComponent';
 // import { NotificationList } from 'notification-list';
-import { NotificationList } from '../dist';
+// import { NotificationList } from '../dist';
 
 class App extends Component {
     constructor(props) {
@@ -47,10 +47,10 @@ class App extends Component {
                         dateObj: new Date("2018-05-24 20:20"),
                         displayDate: moment("2018-05-24 20:20", "YYYY-MM-DD hh:mm").fromNow()
                     },
-                    alert: {
-                        text: 'Very late payment  + has suspicious face',
-                        color: 'danger'
-                    },
+                    // alert: {
+                    //     text: 'Very late payment  + has suspicious face',
+                    //     color: 'danger'
+                    // },
                     priority: {
                         name: "High",
                         value: 1
