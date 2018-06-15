@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
-import { Alert, Button, ButtonGroup, ButtonDropdown, Card, CardHeader, CardBody, CardTitle, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { Button, ButtonGroup, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 
 import NotificationListItem from './NotificationListItem';
 // import { NotificationListItem } from '../../CompisiteComponent'
@@ -114,7 +114,7 @@ class NotificationList extends PureComponent {
     const sortableProperty = sortableFields.find(f => f.title === sortBy);
     if (filteredItems && filteredItems.length > 0) {
       return (
-        <ul className="messages">
+        <ul className="notifications">
           {
             filteredItems
               .sort((a, b) => this.compare(b, a, sortBy, sortableProperty ? sortableProperty.sortByProp : null))
@@ -137,44 +137,24 @@ class NotificationList extends PureComponent {
         </div>
       );
     }
-
   }
 
   render() {
     const { successMessage, errorMessage } = this.state;
     const { icon, title, actions, sortableFields, filters } = this.props;
     return (
-      <Card>
-        <CardHeader>
-          {icon && <i className={icon}></i>} {title}
-        </CardHeader>
-        <CardBody>
-          <CardTitle>
-            {this.renderButtonDropdown('isSortingDropdownOpen', sortableFields, this.handleSort, 'title', 'Sort by')}
-            {this.renderButtonDropdown('isFilteringDropdownOpen', filters, this.handleFilter, 'predicateFunc', 'Show')}
-            <ButtonGroup>
-              {this.renderActions(actions)}
-            </ButtonGroup>
-          </CardTitle>
-          {successMessage &&
-            <Alert color="success animated fadeIn">
-              {successMessage}
-            </Alert>
-          }
-          {errorMessage &&
-            <Alert color="danger animated fadeIn">
-              {errorMessage}
-            </Alert>
-          }
-          <div className="animated fadeIn">
-            <div className="email-app mb-4" style={{ border: 'none' }}>
-              <main className="inbox">
-                {this.renderTableItems()}
-              </main>
-            </div>
-          </div>
-        </CardBody>
-      </Card>
+      <div className="notification-list-wrapper">
+        <div className="notification-list-filter-wrapper">
+          {this.renderButtonDropdown('isSortingDropdownOpen', sortableFields, this.handleSort, 'title', 'Sort by')}
+          {this.renderButtonDropdown('isFilteringDropdownOpen', filters, this.handleFilter, 'predicateFunc', 'Show')}
+          <ButtonGroup>
+            {this.renderActions(actions)}
+          </ButtonGroup>
+        </div>
+        <div className="notification-list-container">
+          {this.renderTableItems()}
+        </div>
+      </div>
     )
   }
 }

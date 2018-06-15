@@ -3,10 +3,10 @@ import { Alert } from 'reactstrap';
 import moment from 'moment';
 import './index.css'
 
-// import NotificationList from './components/NotificationList';
+import NotificationList from './components/NotificationList';
 // import { NotificationList } from './components/CompositeComponent';
 // import { NotificationList } from 'notification-list';
-import { NotificationList } from '../dist';
+// import { NotificationList } from '../dist';
 
 class App extends Component {
     constructor(props) {
@@ -23,22 +23,22 @@ class App extends Component {
                         icon: '',
                         actions: [
                             {
-                                name: '',
+                                name: 'Approve',
                                 icon: 'fa fa-envelope-open-o',
                                 func: this.handleMarkAsRead,
-                                color: 'light'
+                                color: 'success'
                             },
                             {
-                                name: '',
+                                name: 'Reject',
                                 icon: 'fa fa fa-archive',
                                 func: this.handleMarkAsArchived,
-                                color: 'light'
+                                color: 'danger'
                             },
                             {
-                                name: 'Call nr',
+                                name: 'PTP',
                                 icon: 'fa fa-phone-square',
                                 func: this.handlePhonecall,
-                                color: 'light'
+                                color: 'warning'
                             }
                         ]
                     },
@@ -58,7 +58,7 @@ class App extends Component {
                     category: {
                         name: 'Important',
                         icon: 'fa fa-exclamation-triangle',
-                        cssClass: 'bg-primary'
+                        cssClass: ''
                     },
                     url: '/detail',
                     isRead: true,
@@ -76,16 +76,16 @@ class App extends Component {
                         name: 'type 1',
                         actions: [
                             {
-                                name: '',
+                                name: 'Approve',
                                 icon: 'fa fa-envelope-open-o',
                                 func: this.handleMarkAsRead,
-                                color: 'light'
+                                color: 'success'
                             },
                             {
-                                name: '',
+                                name: 'Reject',
                                 icon: 'fa fa fa-archive',
                                 func: this.handleMarkAsArchived,
-                                color: 'light'
+                                color: 'danger'
                             }
                         ]
                     },
@@ -103,9 +103,7 @@ class App extends Component {
                     isRead: true,
                     isArchived: false,
                     sender: null,
-                    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et porttitor massa. Pellentesque sodales ante metus, quis gravida dolor accumsan et. Cras maximus, quam vitae fermentum consequat, mi magna aliquam ligula, ac hendrerit velit nibh ac mauris. Suspendisse ultricies dignissim enim, sit amet scelerisque ante tristique at. In tortor felis, tincidunt consequat purus eu, hendrerit pretium dui. Nunc volutpat, lacus ut placerat cursus, nulla lacus aliquet velit, id cursus odio nibh eget dolor. Vestibulum dictum congue ligula, a varius sem aliquet ut. Nunc commodo ligula nibh, sed condimentum dolor lacinia at. In euismod euismod luctus. Mauris ac arcu odio. Proin feugiat, ante et fermentum ullamcorper, eros massa consectetur est, eu congue metus erat eget neque. Suspendisse potenti. Sed sed volutpat nulla, id varius eros. Suspendisse potenti.
-
-                    Nullam maximus purus eget nunc tincidunt, quis accumsan ligula ullamcorper. Integer molestie erat id condimentum rutrum. Vestibulum et massa interdum, eleifend dui egestas, cursus mauris. Sed eu lobortis velit, nec ultricies augue. Ut ante risus, ultricies eu convallis at, consequat nec nisi. Curabitur rhoncus arcu turpis, rutrum fermentum magna mollis et. Proin ultrices aliquet rhoncus. Mauris luctus euismod orci sit amet pellentesque. Mauris mi metus, consectetur sed ipsum et, commodo convallis tellus. Nulla dui sapien, facilisis molestie sagittis quis, vehicula sit amet velit. Duis vel consequat nisl.`
+                    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et porttitor massa. Pellentesque sodales ante metus, quis gravida dolor accumsan et. Cras maximus, quam vitae fermentum consequat, mi magna aliquam ligula, ac hendrerit velit nibh ac mauris. Suspendisse ultricies dignissim enim, sit amet scelerisque ante tristique at. In tortor felis, tincidunt consequat purus eu, hendrerit pretium dui. Nunc volutpat, lacus ut placerat cursus, nulla lacus aliquet velit, id cursus odio nibh eget dolor. Vestibulum dictum congue ligula, a varius sem aliquet ut. Nunc commodo ligula nibh, sed condimentum dolor lacinia at. In euismod euismod luctus. Mauris ac arcu odio. Proin feugiat, ante et fermentum ullamcorper, eros massa consectetur est, eu congue metus erat eget neque. Suspendisse potenti. Sed sed volutpat nulla, id varius eros. Suspendisse potenti.`
                 },
                 {
                     id: Math.floor(Math.random() * 1000000 + 1),
@@ -127,7 +125,7 @@ class App extends Component {
                     category: {
                         name: 'Important',
                         icon: 'fa fa-exclamation-triangle',
-                        cssClass: 'bg-warning'
+                        cssClass: ''
                     },
                     url: null,
                     isRead: false,
@@ -145,16 +143,22 @@ class App extends Component {
                         name: 'type 1',
                         actions: [
                             {
-                                name: '',
+                                name: 'Approve',
                                 icon: 'fa fa-envelope-open-o',
                                 func: this.handleMarkAsRead,
-                                color: 'light'
+                                color: 'success'
                             },
                             {
-                                name: '',
-                                icon: 'fa fa-archive',
+                                name: 'Reject',
+                                icon: 'fa fa fa-archive',
                                 func: this.handleMarkAsArchived,
-                                color: 'light'
+                                color: 'danger'
+                            },
+                            {
+                                name: 'PTP',
+                                icon: 'fa fa-phone-square',
+                                func: this.handlePhonecall,
+                                color: 'warning'
                             }
                         ]
                     },
@@ -172,15 +176,7 @@ class App extends Component {
                     isRead: false,
                     isArchived: false,
                     sender: null,
-                    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et porttitor massa. Pellentesque sodales ante metus, quis gravida dolor accumsan et. Cras maximus, quam vitae fermentum consequat, mi magna aliquam ligula, ac hendrerit velit nibh ac mauris. Suspendisse ultricies dignissim enim, sit amet scelerisque ante tristique at. In tortor felis, tincidunt consequat purus eu, hendrerit pretium dui. Nunc volutpat, lacus ut placerat cursus, nulla lacus aliquet velit, id cursus odio nibh eget dolor. Vestibulum dictum congue ligula, a varius sem aliquet ut. Nunc commodo ligula nibh, sed condimentum dolor lacinia at. In euismod euismod luctus. Mauris ac arcu odio. Proin feugiat, ante et fermentum ullamcorper, eros massa consectetur est, eu congue metus erat eget neque. Suspendisse potenti. Sed sed volutpat nulla, id varius eros. Suspendisse potenti.
-
-                    Nullam maximus purus eget nunc tincidunt, quis accumsan ligula ullamcorper. Integer molestie erat id condimentum rutrum. Vestibulum et massa interdum, eleifend dui egestas, cursus mauris. Sed eu lobortis velit, nec ultricies augue. Ut ante risus, ultricies eu convallis at, consequat nec nisi. Curabitur rhoncus arcu turpis, rutrum fermentum magna mollis et. Proin ultrices aliquet rhoncus. Mauris luctus euismod orci sit amet pellentesque. Mauris mi metus, consectetur sed ipsum et, commodo convallis tellus. Nulla dui sapien, facilisis molestie sagittis quis, vehicula sit amet velit. Duis vel consequat nisl.
-                    
-                    Nam dapibus ultricies lorem, id aliquet lacus facilisis non. Fusce sagittis augue vitae gravida fringilla. Donec venenatis, metus non ultricies lobortis, augue arcu hendrerit enim, quis luctus nulla magna sed risus. Donec porta nunc vel mi consectetur finibus. Vestibulum fringilla ex justo, et pharetra nisi blandit at. In laoreet eleifend nisl in tincidunt. Pellentesque dui lectus, venenatis blandit mi eu, finibus scelerisque ligula. Donec vel tempor ante. Phasellus at ex quis dui hendrerit sollicitudin. Nulla sit amet euismod tortor. Nulla dignissim diam ultrices lacus ultricies, in cursus sapien malesuada.
-                    
-                    Morbi egestas at ligula vel egestas. Fusce vitae congue mi. Morbi facilisis tortor sit amet felis pulvinar, sit amet scelerisque sem finibus. Morbi venenatis odio nec augue hendrerit, sed lacinia libero pretium. Donec pulvinar, urna placerat rutrum ornare, mauris nulla molestie neque, ac pretium erat libero nec sem. Mauris dapibus leo sed nisi congue aliquam. Pellentesque egestas bibendum est, eget vehicula dolor. Sed id est lorem. Suspendisse a erat vehicula, euismod neque non, tincidunt ligula. Proin tincidunt non nulla non ultricies. Nunc blandit augue at sem elementum ullamcorper. Vestibulum vitae porttitor ipsum.
-                    
-                    Etiam sed nunc arcu. Cras at tempor orci. Donec rutrum, erat eget blandit eleifend, odio tellus lacinia orci, id venenatis ligula enim eu ante. Proin eget enim efficitur, mollis massa ut, iaculis sapien. Mauris maximus nunc nec imperdiet laoreet. Aenean facilisis vitae est vel sodales. Mauris semper eros sed enim dignissim aliquam. Vivamus non neque et magna pretium euismod. Fusce id eros rutrum neque vestibulum venenatis. Pellentesque at nulla ut ante convallis vestibulum at at urna. Nam dictum ex vitae diam fringilla tristique. Vivamus vulputate a quam at tincidunt. Proin at tortor pulvinar, scelerisque elit ut, tincidunt elit. Donec mattis tortor vitae semper pharetra.`
+                    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et porttitor massa. Pellentesque sodales ante metus, quis gravida dolor accumsan et. Cras maximus, quam vitae fermentum consequat, mi magna aliquam ligula, ac hendrerit velit nibh ac mauris. Suspendisse ultricies dignissim enim, sit amet scelerisque ante tristique at. In tortor felis, tincidunt consequat purus eu, hendrerit pretium dui. Nunc volutpat, lacus ut placerat cursus, nulla lacus aliquet velit, id cursus odio nibh eget dolor. Vestibulum dictum congue ligula, a varius sem aliquet ut. Nunc commodo ligula nibh, sed condimentum dolor lacinia at. In euismod euismod luctus. Mauris ac arcu odio. Proin feugiat, ante et fermentum ullamcorper, eros massa consectetur est, eu congue metus erat eget neque. Suspendisse potenti. Sed sed volutpat nulla, id varius eros. Suspendisse potenti.`
                 }
             ],
             priorityClasses: new Map([['High', 'danger'], ['Medium', 'warning'], ['Low', 'success']]),

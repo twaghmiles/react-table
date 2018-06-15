@@ -85,40 +85,34 @@ class NotificationListItem extends PureComponent {
      */
     renderListItem(item, priorityClasses, truncateTextLength) {
         return (
-            <div>
-                <div className="header">
-
-                    <span className="from">
-                        {priorityClasses &&
-                            <h6>
-                                <Badge color={priorityClasses.get(item.priority.name)}>{item.priority.name}</Badge>
-                                <span className="title"> {item.title}</span>
-                            </h6>}
-                        {item.alert && <Alert color={item.alert.color}>{item.alert.text}</Alert>}
-                    </span>
-                    <span className="date"><span className="fa fa-paper-clip"></span>{item.date.displayDate}</span>
+            <div className="notification-item">
+                <div className="notification-item-header">
+                    <span className="notification-item-title">{item.title}</span>
                 </div>
-
-                <div className="description">
-                    <h6>{item.category ? item.category.name : ''}</h6>
-                    <Media>
-                        {item.sender && item.sender.avatarUrl &&
-                            <Media>
-                                <Media object src={item.sender.avatarUrl} alt="Client avatar" style={{ height: '3rem' }} />
-                            </Media>
-                        }
-                        <Media body>
-
-                            <div className="title" style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>
-                                {item.sender && item.sender && <span className="title"> {item.sender.firstName} {item.sender.lastName}</span>}
-                            </div>
-                            <p style={item.sender && item.sender.avatarUrl && { margin: '0 0.5rem' }}>{item.text.length > truncateTextLength ? this.truncateText(item.text, truncateTextLength) : item.text}</p>
-
-                        </Media>
-                    </Media>
+                <div className="notification-item-body">
+                    <div className="notification-item-avtar-wrapper">
+                        <img className="img-avatar" src={item.sender && item.sender.avatarUrl ? item.sender.avatarUrl : "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png"} alt="admin@admin.com" />
+                    </div>
+                    <div className="notification-item-content-wrapper">
+                        { item.category && <h6>{item.category.name}</h6>}
+                        <div className="notification-item-description">
+                            {item.text.length > truncateTextLength ? this.truncateText(item.text, truncateTextLength) : item.text}
+                        </div>
+                        <div className="notification-item-sender-name">
+                            {item.sender && <span className="title"> {item.sender.firstName || ''} {item.sender.lastName || ''}</span>}
+                            <span className="notification-item-date">{item.date.displayDate}</span>
+                        </div>
+                    </div>
+                </div>
+                <div className="notification-item-footer">
+                    {item.url ? <Link to={item.url}>More Info</Link> : <span></span>}
+                    <div className="notification-item-action-wrapper">
+                        {item.type && item.type.actions && item.type.actions.map((action, i) => {
+                            return <span className={`notification-item-action notification-item-action-${action.color}`}>{action.name}</span>
+                        })}
+                    </div>
                 </div>
             </div>
-
         );
     }
 
@@ -130,24 +124,10 @@ class NotificationListItem extends PureComponent {
         const { successMessage, errorMessage, showFullText } = this.state;
         const { item, priorityClasses, truncateTextLength } = this.props;
         return (
-            <li className={!item.isRead ? "message unread" : "message" && (item.category && item.category.cssClass ? item.category.cssClass : '')} style={{ cursor: 'default', padding: '0.3rem' }}>
-                {item.url &&
-                    <Link to={item.url}>
-                        {this.renderListItem(item, priorityClasses, truncateTextLength)}
-                    </Link>
-                }
-                {!item.url && this.renderListItem(item, priorityClasses, truncateTextLength)}
-                {item.text.length > truncateTextLength &&
-                    <div>
-                        <Button color="link" size="sm" onClick={this.expandText}>{showFullText ? 'Less' : 'More'}</Button>
-                    </div>
-                }
-                <ButtonGroup size="sm" style={{ padding: '0.2rem 0' }}>
-                    {this.renderActions(item)}
-                </ButtonGroup>
-                {successMessage && <p className="text-success description animated fadeIn">{successMessage}</p>}
-                {errorMessage && <p className="text-danger description animated fadeIn">{errorMessage}</p>}
-            </li>)
+            <li className={`notification-item-wrapper notification-item-${priorityClasses.get(item.priority.name)} ${!item.isRead ? "unread" : ""}`}>
+                {this.renderListItem(item, priorityClasses, truncateTextLength)}
+            </li>
+        )
     }
 }
 
